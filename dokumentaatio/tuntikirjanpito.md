@@ -6,4 +6,4 @@ Päivä | Tunnit | Kuvaus
 13.09.2016 | 2h | Ohjelman suunnittelua
 16.09.2016 | 2h | Pelilaudan ja tetriminojen koodausta
 17.09.2016 | 1h | Testien tekoa
-18.09.2016 | 2h | Checkstyle ja pit, tetriminojen toteutuksen uudelleen suunnittelua
+18.09.2016 | 2h | Checkstyle ja pit, luokkakaavion teko, tetriminojen toteutuksen uudelleen suunnittelua
