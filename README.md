@@ -1,3 +1,5 @@
-# Tetris
+Tetris-peli, jossa yritetään saada erimuotoiset putoavat palikat muodostamaan täysi rivi, jolloin rivi häviää.
 
-repotreeni
+####Dokumentaatio
+[aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+[tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
