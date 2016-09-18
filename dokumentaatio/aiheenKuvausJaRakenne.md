@@ -15,3 +15,6 @@ Palikoita eli tetrominoja on seitsemän erilaista ja kaikki koostuvat neljästä
  * pelin lopetus
  * ohjelmasta poistuminen
  * näppäinten painaminen
+
+
+![luokkakaavio][/dokumentaatio/tetrisluokkakaavio.png]
