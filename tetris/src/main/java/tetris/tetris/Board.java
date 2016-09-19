@@ -2,13 +2,13 @@ package tetris.tetris;
 
 public class Board {
 
-    private int height;
-    private int width;
+    private final static int height = 20;
+    private final static int width = 10;
     private int[][] board;
 
-    public Board(int height, int width) {
-        this.height = height;
-        this.width = width;
+    public Board() {
+//        this.height = height;
+//        this.width = width;
         this.board = new int[this.height][this.width];
         emptyBoard();
 
@@ -18,7 +18,7 @@ public class Board {
         return height;
     }
 
-    public int getWidth() {
+    public static int getWidth() {
         return width;
     }
 
@@ -79,7 +79,7 @@ public class Board {
         if (y < 0 || y >= this.height) {
             return;
         }
-        for (int z = y; z > 0; z--) {
+        for (int z = y; z > 0; z--) {       //ylemmät rivit yksi alemmas
             for (int x = 0; x < this.width; x++) {
                 this.board[z][x] = this.board[z - 1][x];
             }
