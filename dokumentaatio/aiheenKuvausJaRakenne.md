@@ -18,6 +18,7 @@ Palikoita eli tetrominoja on seitsemän erilaista ja kaikki koostuvat neljästä
 
 
 
+
 #### Luokkakaavio
 
 ![luokkakaavio](/dokumentaatio/tetrisluokkakaavio.png)
