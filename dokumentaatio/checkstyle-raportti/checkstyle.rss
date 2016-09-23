@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 4,
+      <title>File: 8,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tetris.tetris.TetriminoType.java">tetris/tetris/TetriminoType.java</a>
+                  <a href="${project.url}/checkstyle.html#tetris.ui.TetrisMain.java">tetris/ui/TetrisMain.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tetris.tetris.Board.java">tetris/tetris/Board.java</a>
+                  <a href="${project.url}/checkstyle.html#tetris.ui.GamePanel.java">tetris/ui/GamePanel.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tetris.tetris.TetrisMain.java">tetris/tetris/TetrisMain.java</a>
+                  <a href="${project.url}/checkstyle.html#tetris.logic.Game.java">tetris/logic/Game.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,63 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tetris.tetris.Tetrimino.java">tetris/tetris/Tetrimino.java</a>
+                  <a href="${project.url}/checkstyle.html#tetris.logic.Tetrimino.java">tetris/logic/Tetrimino.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tetris.ui.UI.java">tetris/ui/UI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tetris.logic.TetriminoType.java">tetris/logic/TetriminoType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tetris.ui.KeyboardListener.java">tetris/ui/KeyboardListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tetris.logic.Board.java">tetris/logic/Board.java</a>
                 </td>
                 <td>
                   0

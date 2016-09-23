@@ -3,43 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris;
+package tetris.logic;
 
-import java.util.ArrayList;
 import org.junit.After;
-import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tetris.tetris.Tetrimino;
-import tetris.tetris.TetriminoType;
 
 /**
  *
  * @author inka
  */
 public class TetriminoTest {
-    Tetrimino i;
-    Tetrimino j;
-    Tetrimino l;
-    Tetrimino o;
-    Tetrimino s;
-    Tetrimino t;
-    Tetrimino z;
+    private Board b;
+    private Tetrimino tetr;
+    private Tetrimino i;
+    private Tetrimino j;
+    private Tetrimino l;
+    private Tetrimino o;
+    private Tetrimino s;
+    private Tetrimino t;
+    private Tetrimino z;
     
     public TetriminoTest() {
     }
 
     @Before
     public void setUp() {
-        this.i = new Tetrimino(TetriminoType.I);
-        this.j = new Tetrimino(TetriminoType.J);
-        this.l = new Tetrimino(TetriminoType.L);
-        this.o = new Tetrimino(TetriminoType.O);
-        this.s = new Tetrimino(TetriminoType.S);
-        this.t = new Tetrimino(TetriminoType.T);
-        this.z = new Tetrimino(TetriminoType.Z);
+        this.b = new Board();
+        this.tetr = new Tetrimino(b);
+        this.i = new Tetrimino(b, TetriminoType.I);
+        this.j = new Tetrimino(b, TetriminoType.J);
+        this.l = new Tetrimino(b, TetriminoType.L);
+        this.o = new Tetrimino(b, TetriminoType.O);
+        this.s = new Tetrimino(b, TetriminoType.S);
+        this.t = new Tetrimino(b, TetriminoType.T);
+        this.z = new Tetrimino(b, TetriminoType.Z);
+        
     }
 
     @After
@@ -80,4 +81,29 @@ public class TetriminoTest {
     public void testKonstruktoriAsettaaOikeatRotaatiotZ() {
         assertTrue(this.z.getTetriminoRotations() == TetriminoType.Z.getRotations());
     }
+    @Test
+     public void testTetriminoLiikkuuOikeinOikealle() {
+         this.tetr.moveRight();
+         assertEquals(b.getWidth()/2, tetr.getX());
+     }
+     
+     @Test
+     public void testTetriminoLiikkuuOikeinVasemmalle() {
+         tetr.moveLeft();
+         assertEquals(b.getWidth()/2-2, tetr.getX());
+     }
+     
+     @Test
+     public void testTetriminoLiikkuuOikeinAlas() {
+         tetr.moveDown();
+         assertEquals(1, tetr.getY());
+         
+     }
+     
+     @Test
+     public void testTetriminoPyoriiOikein() {
+         int[][] next = tetr.getNextRotation();
+         tetr.rotate();
+         assertArrayEquals(next, tetr.getCurrentRotation());
+     }
 }

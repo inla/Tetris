@@ -1,13 +1,9 @@
-package tetris;
+package tetris.logic;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tetris.tetris.Board;
-
 
 public class BoardTest {
     private Board b;
@@ -32,14 +28,14 @@ public class BoardTest {
 
     @Test
     public void testKonstruktoriAsettaaLeveydenOikein() {
-        assertEquals(10, Board.getWidth());
+        assertEquals(10, b.getWidth());
         assertEquals(10, b.getBoard()[0].length);
     }
     
     @Test
     public void testAlussaLautaTyhja(){
         for (int i = 0; i < b.getHeight(); i++) {
-            for (int j = 0; j < Board.getWidth(); j++) {
+            for (int j = 0; j < b.getWidth(); j++) {
                 assertEquals(0, this.b.getBoard()[i][j]);
             }
         }
@@ -148,7 +144,7 @@ public class BoardTest {
     
     @Test
     public void testRemoveFullRowsToimii() {
-        for (int i = 0; i < Board.getWidth(); i++) {
+        for (int i = 0; i < b.getWidth(); i++) {
             b.getBoard()[2][i] = 1;
         }
         b.getBoard()[0][2] = 1;

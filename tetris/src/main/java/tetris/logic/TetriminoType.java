@@ -1,7 +1,6 @@
-package tetris.tetris;
+package tetris.logic;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public enum TetriminoType {
 
@@ -13,29 +12,23 @@ public enum TetriminoType {
     T(5),
     Z(6);
 
-    private int type;
     private int maxRotation;
     private ArrayList<int[][]> rotations;
 
     private TetriminoType(int type) {
         makeTetrimino(type);
     }
-    
-//    public void randomTetrimino() {
-//        int r = new Random().nextInt(7);
-//        makeTetrimino(r);
-//    }
-    
+
     private void makeTetrimino(int type) {
         switch (type) {
             case 0:     //I
                 this.maxRotation = 2;
                 this.rotations = new ArrayList();
                 this.rotations.add(new int[][]{{1, 1, 1, 1}});
-                this.rotations.add(new int[][]{{1},
-                {1},
-                {1},
-                {1}});
+                this.rotations.add(new int[][]{ {1},
+                                                {1},
+                                                {1},
+                                                {1}});
                 break;
 
             case 1:     //J
