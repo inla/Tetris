@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 17.09.2016 | 1h | Testien tekoa
 18.09.2016 | 2h | Checkstyle ja pit, luokkakaavion teko, tetriminojen toteutuksen uudelleen suunnittelua
 19.09.2016 | 4h | Luokkien koodausta/säätämistä ja lisää testejä
+23.09.2016 | 4h | Käyttöliittymän suunnittelua, muiden luokkien hiomista ja testejä
