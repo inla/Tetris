@@ -3,10 +3,13 @@ package tetris.logic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import tetris.ui.GamePanel;
 
 /**
+ * Handels the game logic.
  *
  * @author inka
+ *
  */
 public class Game implements ActionListener {
 
@@ -19,6 +22,7 @@ public class Game implements ActionListener {
     private Timer timer;
     private int removedRows;
     private int score;
+    private GamePanel gamePanel;
 
     public Game() {
         this.board = new Board();
@@ -46,14 +50,18 @@ public class Game implements ActionListener {
 //        if (this.gameOver) {
 //
 //        }
-        if (this.tetrimino.canMoveDown()) {
-            this.tetrimino.moveDown();
-        } else {
-            this.tetrimino.addToBoard();
-            this.tetrimino = getNextTetrimino();
-            this.nextTetrimino = new Tetrimino(board);
-            this.board.removeFullRows();
+        if (running) {
+            if (this.tetrimino.canMoveDown()) {
+                moveDown();
+            } else {
+                this.tetrimino.addToBoard();
+                this.board.removeFullRows();
+                this.tetrimino = getNextTetrimino();
+                this.nextTetrimino = new Tetrimino(board);
+            }
+            this.gamePanel.repaint();
         }
+
     }
 
     public void moveRight() {
@@ -102,6 +110,21 @@ public class Game implements ActionListener {
 
     public boolean isPaused() {
         return paused;
+    }
+
+    public void pauseGame() {
+        if (running) {
+            this.paused = true;
+            this.running = false;
+        } else {
+            this.running = true;
+            this.paused = false;
+        }
+
+    }
+
+    public void setGamePanel(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
     }
 
 }
