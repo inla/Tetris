@@ -3,11 +3,13 @@ package tetris.ui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import tetris.logic.Game;
+
 /**
  *
  * @author inka
  */
 public class KeyboardListener implements KeyListener {
+
     private Game game;
 
     public KeyboardListener(Game game) {
@@ -28,6 +30,8 @@ public class KeyboardListener implements KeyListener {
             this.game.moveDown();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             this.game.moveLeft();
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            this.game.dropDown();
         } else if (e.getKeyCode() == KeyEvent.VK_P) {
             this.game.pauseGame();
         }

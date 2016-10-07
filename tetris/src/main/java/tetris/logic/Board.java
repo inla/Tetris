@@ -19,7 +19,6 @@ public class Board {
      */
     public Board() {
         this.board = new int[HEIGHT][WIDTH];
-        //emptyBoard();
     }
 
     public int getHeight() {
@@ -66,8 +65,7 @@ public class Board {
     }
 
     /**
-     * Tells if a point in given coordinates is empty. Point is empty when its
-     * value is 0.
+     * Tells if a point in given coordinates is empty (=point is zero).
      *
      * @param x x coordinate
      * @param y y coordinate
@@ -84,14 +82,19 @@ public class Board {
     /**
      * Removes all full rows from the board. Iterates through all the rows from
      * below upwards, checks if a row is full and if it is, removes it.
+     *
+     * @return how many rows were removed
      */
-    public void removeFullRows() {
+    public int removeFullRows() {
+        int removed = 0;
         for (int y = HEIGHT - 1; y >= 0; y--) {
             if (isRowFull(y)) {
                 removeRow(y);
+                removed++;
                 y++;
             }
         }
+        return removed;
     }
 
     /**
@@ -107,25 +110,6 @@ public class Board {
 //        }
         for (int x = 0; x < WIDTH; x++) {
             if (this.board[y][x] == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Tells if a certain row is empty. A row is empty when all of its points
-     * are empty.
-     *
-     * @param y row's y coordinate
-     * @return true if the row is empty, false otherwise
-     */
-    public boolean isRowEmpty(int y) {
-//        if (y < 0 || y >= HEIGHT) {   //laudan ulkopuolella true/false?
-//            return false;
-//        }
-        for (int x = 0; x < WIDTH; x++) {
-            if (this.board[y][x] != 0) {
                 return false;
             }
         }
@@ -177,7 +161,14 @@ public class Board {
             return this.board[y][x];
         }
     }
-    
+
+    /**
+     * Tells the color of the point.
+     *
+     * @param x point's x coordinate
+     * @param y point's y coordinate
+     * @return color of the point
+     */
     public Color getPointColor(int x, int y) {
         int point = getPoint(x, y);
         if (point == 1) {

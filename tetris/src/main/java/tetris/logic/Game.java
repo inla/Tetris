@@ -1,5 +1,6 @@
 package tetris.logic;
 
+import com.sun.javafx.scene.traversal.Direction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -22,6 +23,7 @@ public class Game implements ActionListener {
     private Timer timer;
     private int removedRows;
     private int score;
+    private int level;
     private GamePanel gamePanel;
 
     public Game() {
@@ -34,6 +36,7 @@ public class Game implements ActionListener {
         this.timer = new Timer(1000, this);
         this.removedRows = 0;
         this.score = 0;
+        this.level = 1;
 
     }
 
@@ -44,40 +47,71 @@ public class Game implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         update();
+        this.gamePanel.repaint();
     }
 
     public void update() {
-//        if (this.gameOver) {
-//
-//        }
+        if (this.gameOver) {
+            return;
+        }
         if (running) {
-            if (this.tetrimino.canMoveDown()) {
+            if (this.tetrimino.canMove(Direction.DOWN)) {
                 moveDown();
             } else {
-                this.tetrimino.addToBoard();
-                this.board.removeFullRows();
-                this.tetrimino = getNextTetrimino();
-                this.nextTetrimino = new Tetrimino(board);
+                respawn();
             }
-            this.gamePanel.repaint();
         }
 
     }
 
+    private void respawn() {
+        this.tetrimino.addToBoard();
+        this.tetrimino = getNextTetrimino();
+        this.tetrimino.moveToStartingPoint();
+        this.nextTetrimino = new Tetrimino(board);
+        int removed = this.board.removeFullRows();
+        this.score += 100 * removed * level;            //keksi parempi kaava?
+        this.removedRows += removed;
+        this.level = this.score / 10000 + 1;            // ^
+
+        if (!this.tetrimino.canMove(Direction.DOWN)) {
+            this.gameOver = true;
+        }
+    }
+
     public void moveRight() {
-        this.tetrimino.moveRight();
+        if (running) {
+            this.tetrimino.moveRight();
+            this.gamePanel.repaint();
+        }
     }
 
     public void moveLeft() {
-        this.tetrimino.moveLeft();
+        if (running) {
+            this.tetrimino.moveLeft();
+            this.gamePanel.repaint();
+        }
     }
 
     public void moveDown() {
-        this.tetrimino.moveDown();
+        if (running) {
+            this.tetrimino.moveDown();
+            this.gamePanel.repaint();
+        }
+    }
+
+    public void dropDown() {
+        if (running) {
+            this.tetrimino.dropDown();
+            this.gamePanel.repaint();
+        }
     }
 
     public void rotate() {
-        this.tetrimino.rotate();
+        if (running) {
+            this.tetrimino.rotate();
+            this.gamePanel.repaint();
+        }
     }
 
     public Board getBoard() {
@@ -100,6 +134,10 @@ public class Game implements ActionListener {
         return score;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public boolean isGameOver() {
         return gameOver;
     }
@@ -116,6 +154,7 @@ public class Game implements ActionListener {
         if (running) {
             this.paused = true;
             this.running = false;
+
         } else {
             this.running = true;
             this.paused = false;
@@ -126,5 +165,4 @@ public class Game implements ActionListener {
     public void setGamePanel(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
-
 }

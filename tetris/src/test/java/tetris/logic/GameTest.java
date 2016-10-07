@@ -5,10 +5,12 @@
  */
 package tetris.logic;
 
+import javax.swing.SwingUtilities;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import tetris.ui.UI;
 
 /**
  *
@@ -17,6 +19,7 @@ import static org.junit.Assert.*;
 public class GameTest {
     private Game g;
     private Tetrimino t;
+    private UI ui;
     
     public GameTest() {
     }
@@ -25,6 +28,16 @@ public class GameTest {
     public void setUp() {
         this.g = new Game();
         this.t = g.getTetrimino();
+        this.ui = new UI(g);
+        SwingUtilities.invokeLater(ui);
+        while (ui.getGamePanel() == null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                System.out.println("hmm..");
+            }
+        }
+        this.g.setGamePanel(ui.getGamePanel());
     }
     
     @After
@@ -64,8 +77,13 @@ public class GameTest {
      
      @Test
      public void testTetriminoPyoriiOikein() {
+         int[][] next = t.getNextRotation();
          g.rotate();
-         t.rotate();
-         assertArrayEquals(t.getCurrentRotation(), g.getTetrimino().getCurrentRotation());
+         assertArrayEquals(next, g.getTetrimino().getCurrentRotation());
+     }
+     
+     @Test
+     public void testRespawnToimii() {
+         
      }
 }

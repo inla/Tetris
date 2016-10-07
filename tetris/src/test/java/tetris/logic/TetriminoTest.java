@@ -101,6 +101,12 @@ public class TetriminoTest {
      }
      
      @Test
+     public void testTetriminoPutoaaOikein() {
+         tetr.dropDown();
+         assertEquals(b.getHeight()-tetr.getCurrentRotation().length, this.tetr.getY());
+     }
+     
+     @Test
      public void testTetriminoPyoriiOikein() {
          int[][] next = tetr.getNextRotation();
          tetr.rotate();

@@ -1,5 +1,6 @@
 package tetris.logic;
 
+import com.sun.javafx.scene.traversal.Direction;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,14 +21,12 @@ public class Tetrimino {
     private Board board;
 
     /**
-     * Selects a random tetrimino type and calls the other constructor. Selects
-     * also a random rotation number.
+     * Selects a random tetrimino type and calls the other constructor.
      *
      * @param board the board where this tetrimino appears
      */
     public Tetrimino(Board board) {
         this(board, TetriminoType.values()[new Random().nextInt(7)]);
-        this.rotation = new Random().nextInt(this.type.getMaxRotation());
     }
 
     /**
@@ -47,60 +46,69 @@ public class Tetrimino {
         this.y = 0;
 
     }
-
+    public void moveToStartingPoint() {
+        this.x = board.getWidth() / 2 - 1;
+        this.y = 0;
+    }
+    
     /**
-     * Tells if a tetrimino can move down by one point.
+     * Tells if a tetrimino can move to a certain direction.
      *
-     * @return true if the tetimino can move, false otherwise
+     * @param direction the direction to be checked
+     * @return true if the tetrimino can move, false otherwise
      */
-    public boolean canMoveDown() {
-        int[][] nextPlace = this.tetriminoRotations.get(this.rotation);
-        return !collides(nextPlace, 2);
+    public boolean canMove(Direction direction) {
+        return !collides(direction);
     }
 
     /**
-     * Increases the tetrimino's x coordinate by one if it doesn't then collide
-     * to anything.
+     * Increases the tetrimino's x coordinate by one if it's possible.
      */
     public void moveRight() {
-        if (!collides(this.tetriminoRotations.get(this.rotation), 6)) {
+        if (canMove(Direction.RIGHT)) {
             this.x++;
         }
     }
 
     /**
-     * Decreases the tetrimino's x coordinate by one if it doesn't then collide
-     * to anything.
+     * Decreases the tetrimino's x coordinate by one if it's possible.
      */
     public void moveLeft() {
         if (this.x == 0) {
             return;
         }
-        if (!collides(this.tetriminoRotations.get(this.rotation), 4)) {
+        if (canMove(Direction.LEFT)) {
             this.x--;
         }
     }
 
     /**
-     * Increases the tetrimino's y coordinate by one if it doesn't then collide
-     * to anything.
+     * Increases the tetrimino's y coordinate by one if it's possible.
      */
     public void moveDown() {
-        if (canMoveDown()) {
+        if (canMove(Direction.DOWN)) {
             this.y++;
         }
     }
 
     /**
-     * Gets the next rotation from the tetrimino's list of rotations and sets
-     * its number as the current rotation number, if it doesn't then collide to
-     * anything.
+     * Moves the tetrimino as down as possible.
+     */
+    public void dropDown() {
+        while (canMove(Direction.DOWN)) {
+            this.y++;
+        }
+    }
+
+    /**
+     * Sets the next rotation number from the tetrimino's list of rotations as
+     * the current rotation number, if it doesn't then collide to anything.
      */
     public void rotate() {
         if (this.type.getMaxRotation() == 1) {
             return;
         }
-        if (!collides(getNextRotation(), 0)) {
+        if (!collides(null)) {
             if (this.rotation + 1 < this.type.getMaxRotation()) {
                 this.rotation++;
             } else {
@@ -110,30 +118,35 @@ public class Tetrimino {
     }
 
     /**
-     * Checks if the given tetrimino shape collides with anything
+     * Checks if the given tetrimino shape collides with anything in the given
+     * direction.
      *
-     * @param tetr the rotation of the tetrimino to be tested
      * @param direction the direction to be checked
      * @return true if collides, false otherwise
      */
-    public boolean collides(int[][] tetr, int direction) {
-        int tetrX = getX();
-        int tetrY = getY();
-        if (direction == 4) {
-            tetrX--;
-        } else if (direction == 6) {
-            tetrX++;
-        } else if (direction == 2) {
-            tetrY++;
+    public boolean collides(Direction direction) {
+        int dx = getX();
+        int dy = getY();
+
+        if (direction == Direction.LEFT) {
+            dx--;
+        } else if (direction == Direction.RIGHT) {
+            dx++;
+        } else if (direction == Direction.DOWN) {
+            dy++;
+        }
+        int[][] tetr = getCurrentRotation();
+        if (direction == null) {
+            tetr = getNextRotation();
         }
         for (int i = 0; i < tetr.length; i++) {
             for (int j = 0; j < tetr[i].length; j++) {
                 if (tetr[i][j] == 0) {
                     continue;
                 }
-                int testX = j + tetrX;
-                int testY = i + tetrY;
-                if ((board.getBoard()[testY][testX] != 0) || !isInsideBorders(testX, testY)) {
+                int testX = j + dx;
+                int testY = i + dy;
+                if ((!isInsideBorders(testX, testY) || board.getBoard()[testY][testX] != 0)) {
                     return true;
                 }
             }
@@ -148,18 +161,10 @@ public class Tetrimino {
         this.board.addTetrimino(this);
     }
 
-    /**
-     *
-     * @return the current rotation shape
-     */
     public int[][] getCurrentRotation() {
         return this.tetriminoRotations.get(this.rotation);
     }
 
-    /**
-     *
-     * @return the next rotation shape
-     */
     public int[][] getNextRotation() {
         if (this.rotation + 1 < this.type.getMaxRotation()) {
             return this.tetriminoRotations.get(this.rotation + 1);
@@ -175,7 +180,7 @@ public class Tetrimino {
      * @return true if point is inside borders, false otherwise
      */
     public boolean isInsideBorders(int testX, int testY) {
-        return testX < board.getWidth() - 1 && testX >= 0 && testY < board.getHeight() - 1 && testY >= 0;
+        return testX < board.getWidth() && testX >= 0 && testY < board.getHeight() && testY >= 0;
     }
 
     public int getX() {

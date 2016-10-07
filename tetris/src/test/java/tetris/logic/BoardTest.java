@@ -86,17 +86,6 @@ public class BoardTest {
     }
     
     @Test
-    public void testOnkoRiviTyhjaPalauttaaTrueKunTyhja() {
-        assertTrue(b.isRowEmpty(0));
-    }
-    
-    @Test
-    public void testOnkoRiviTyhjaPalauttaaFalseKunEiTyhja() {
-        b.getBoard()[0][1] = 1;
-        assertFalse(b.isRowEmpty(0));
-    }
-    
-    @Test
     public void testGetPointPalauttaaNollaLaudanUlkoOikealta() {
         assertEquals(0, b.getPoint(10, 1));
     }
@@ -133,14 +122,18 @@ public class BoardTest {
         this.b.getBoard()[1][2] = 1;
         this.b.removeRow(2);
         assertEquals(1, this.b.getPoint(2, 2));
-        assertTrue(b.isRowEmpty(1));
+        for (int i = 0; i < b.getWidth(); i++) {
+            assertEquals(0, b.getBoard()[1][i]);
+        }
     }
     
     @Test
     public void testRemoveRowAsettaaYlimmanRivinNollille() {
         this.b.getBoard()[0][2] = 1;
         this.b.removeRow(0);
-        assertTrue(b.isRowEmpty(0));
+        for (int i = 0; i < b.getWidth(); i++) {
+            assertEquals(0, b.getBoard()[0][i]);
+        }
     }
     
     @Test
@@ -149,10 +142,13 @@ public class BoardTest {
             b.getBoard()[2][i] = 1;
         }
         b.getBoard()[0][2] = 1;
-        b.removeFullRows();
-        assertTrue(b.isRowEmpty(2));
+        int montakoPoistettua = b.removeFullRows();
+        for (int i = 0; i < b.getWidth(); i++) {
+            assertEquals(0, b.getBoard()[2][i]);
+        }
         assertEquals(0, b.getPoint(2, 0));
         assertEquals(1, b.getPoint(2, 1));
+        assertEquals(1, montakoPoistettua);
     }
     
     @Test

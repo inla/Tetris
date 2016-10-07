@@ -131,5 +131,48 @@ public enum TetriminoType {
     public Color getColor() {
         return color;
     }
-
+//
+//    public int getWidth(TetriminoType type, int rotationNumber) {
+//        switch(type) {
+//            case I:
+//                if(rotationNumber == 0) {
+//                    return 4;
+//                } else if (rotationNumber == 1) {
+//                    return 1;
+//                }
+//            case J:
+//                if(rotationNumber == 0 || rotationNumber == 2) {
+//                    return 2;
+//                } else if (rotationNumber == 1 || rotationNumber == 3) {
+//                    return 3;
+//                } 
+//            case L:
+//                if(rotationNumber == 0 || rotationNumber == 2) {
+//                    return 2;
+//                } else if (rotationNumber == 1 || rotationNumber == 3) {
+//                    return 3;
+//                }
+//            case O:
+//                return 2;
+//            case S:
+//                if (rotationNumber == 0) {
+//                    return 3;
+//                } else if (rotationNumber == 1) {
+//                    return 2;
+//                }
+//            case T:
+//                if (rotationNumber == 0 || rotationNumber == 2) {
+//                    return 3;
+//                } else if (rotationNumber == 1 || rotationNumber == 3) {
+//                    return 2;
+//                }
+//            case Z:
+//                if (rotationNumber == 0) {
+//                    return 3;
+//                } else if (rotationNumber == 1) {
+//                    return 2;
+//                }
+//        }
+//        return 0;
+//    }
 }

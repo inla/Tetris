@@ -61,7 +61,7 @@ public class GamePanel extends JPanel {
     }
 
     private void paintTetrimino(Graphics g) {
-        int[][] tetr = this.tetrimino.getCurrentRotation();
+        int[][] tetr = this.game.getTetrimino().getCurrentRotation();
         for (int i = 0; i < tetr.length; i++) {
             for (int j = 0; j < tetr[i].length; j++) {
                 if (tetr[i][j] != 0) {
@@ -83,5 +83,4 @@ public class GamePanel extends JPanel {
     public void repaint() {
         super.repaint();
     }
-
 }
