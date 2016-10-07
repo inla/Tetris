@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paintTetrimino(Graphics g) {
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">int</strong>[][] tetr = <strong class="jxr_keyword">this</strong>.tetrimino.getCurrentRotation();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">int</strong>[][] tetr = <strong class="jxr_keyword">this</strong>.game.getTetrimino().getCurrentRotation();
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; tetr.length; i++) {
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; tetr[i].length; j++) {
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>                  <strong class="jxr_keyword">if</strong> (tetr[i][j] != 0) {
@@ -91,8 +91,7 @@
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> repaint() {
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>          <strong class="jxr_keyword">super</strong>.repaint();
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>      }
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

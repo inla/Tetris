@@ -46,11 +46,12 @@ public class Tetrimino {
         this.y = 0;
 
     }
+
     public void moveToStartingPoint() {
         this.x = board.getWidth() / 2 - 1;
         this.y = 0;
     }
-    
+
     /**
      * Tells if a tetrimino can move to a certain direction.
      *
@@ -105,9 +106,9 @@ public class Tetrimino {
      * the current rotation number, if it doesn't then collide to anything.
      */
     public void rotate() {
-        if (this.type.getMaxRotation() == 1) {
-            return;
-        }
+//        if (this.type.getMaxRotation() == 1) {
+//            return;
+//        }
         if (!collides(null)) {
             if (this.rotation + 1 < this.type.getMaxRotation()) {
                 this.rotation++;
@@ -127,16 +128,14 @@ public class Tetrimino {
     public boolean collides(Direction direction) {
         int dx = getX();
         int dy = getY();
-
+        int[][] tetr = getCurrentRotation();
         if (direction == Direction.LEFT) {
             dx--;
         } else if (direction == Direction.RIGHT) {
             dx++;
         } else if (direction == Direction.DOWN) {
             dy++;
-        }
-        int[][] tetr = getCurrentRotation();
-        if (direction == null) {
+        } else if (direction == null) {
             tetr = getNextRotation();
         }
         for (int i = 0; i < tetr.length; i++) {
@@ -155,6 +154,17 @@ public class Tetrimino {
     }
 
     /**
+     * Checks if given coordinate point is inside the board.
+     *
+     * @param testX x coordinate
+     * @param testY y coordinate
+     * @return true if point is inside borders, false otherwise
+     */
+    public boolean isInsideBorders(int testX, int testY) {
+        return testX < board.getWidth() && testX >= 0 && testY < board.getHeight() && testY >= 0;
+    }
+
+    /**
      * Adds this tetrimino shape to the board.
      */
     public void addToBoard() {
@@ -170,17 +180,6 @@ public class Tetrimino {
             return this.tetriminoRotations.get(this.rotation + 1);
         }
         return this.tetriminoRotations.get(0);
-    }
-
-    /**
-     * Checks if given coordinate point is inside the board.
-     *
-     * @param testX x coordinate
-     * @param testY y coordinate
-     * @return true if point is inside borders, false otherwise
-     */
-    public boolean isInsideBorders(int testX, int testY) {
-        return testX < board.getWidth() && testX >= 0 && testY < board.getHeight() && testY >= 0;
     }
 
     public int getX() {
