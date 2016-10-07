@@ -47,11 +47,6 @@ public class Tetrimino {
 
     }
 
-    public void moveToStartingPoint() {
-        this.x = board.getWidth() / 2 - 1;
-        this.y = 0;
-    }
-
     /**
      * Tells if a tetrimino can move to a certain direction.
      *

@@ -25,6 +25,12 @@ public class SidePanel extends JPanel {
     private int removedRows;
     private int level;
 
+    /**
+     * Creates the side panel.
+     *
+     * @param game current game
+     * @param squareSize size of the squares
+     */
     public SidePanel(Game game, int squareSize) {
         super.setBackground(Color.BLACK);
         this.squareSize = squareSize;

@@ -35,6 +35,7 @@ public class KeyboardListener implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_P) {
             this.game.pauseGame();
         }
+        this.game.repaint();
     }
 
     @Override

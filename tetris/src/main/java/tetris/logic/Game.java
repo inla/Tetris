@@ -26,6 +26,9 @@ public class Game implements ActionListener {
     private int level;
     private GamePanel gamePanel;
 
+    /**
+     * Creates a new game.
+     */
     public Game() {
         this.board = new Board();
         this.tetrimino = new Tetrimino(this.board);
@@ -40,8 +43,18 @@ public class Game implements ActionListener {
 
     }
 
+    /**
+     * Starts the timer.
+     */
     public void start() {
         this.timer.start();
+    }
+
+    /**
+     * Calls the game panels repaint-method.
+     */
+    public void repaint() {
+        this.gamePanel.repaint();
     }
 
     @Override
@@ -50,6 +63,9 @@ public class Game implements ActionListener {
         this.gamePanel.repaint();
     }
 
+    /**
+     * Updates game.
+     */
     public void update() {
         if (this.gameOver) {
             return;
@@ -67,7 +83,6 @@ public class Game implements ActionListener {
     private void respawn() {
         this.tetrimino.addToBoard();
         this.tetrimino = getNextTetrimino();
-        this.tetrimino.moveToStartingPoint();
         this.nextTetrimino = new Tetrimino(board);
         int removed = this.board.removeFullRows();
         this.score += 100 * removed * level;            //keksi parempi kaava?
@@ -79,38 +94,48 @@ public class Game implements ActionListener {
         }
     }
 
+    /**
+     * Calls tetriminos moveRight()-method and repaints the game.
+     */
     public void moveRight() {
         if (running) {
             this.tetrimino.moveRight();
-            this.gamePanel.repaint();
         }
     }
 
+    /**
+     * Calls tetriminos moveLeft()-method and repaints the game.
+     */
     public void moveLeft() {
         if (running) {
             this.tetrimino.moveLeft();
-            this.gamePanel.repaint();
         }
     }
 
+    /**
+     * Calls tetriminos moveDown()-method and repaints the game.
+     */
     public void moveDown() {
         if (running) {
             this.tetrimino.moveDown();
-            this.gamePanel.repaint();
         }
     }
 
+    /**
+     * Calls tetriminos dropDown()-method and repaints the game.
+     */
     public void dropDown() {
         if (running) {
             this.tetrimino.dropDown();
-            this.gamePanel.repaint();
         }
     }
 
+    /**
+     * Calls tetriminos rotate()-method and repaints the game.
+     */
     public void rotate() {
         if (running) {
             this.tetrimino.rotate();
-            this.gamePanel.repaint();
         }
     }
 
@@ -150,6 +175,9 @@ public class Game implements ActionListener {
         return paused;
     }
 
+    /**
+     * Sets the game paused or running.
+     */
     public void pauseGame() {
         if (running) {
             this.paused = true;

@@ -5,7 +5,6 @@
  */
 package tetris.logic;
 
-import javax.swing.SwingUtilities;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,16 +27,6 @@ public class GameTest {
     public void setUp() {
         this.g = new Game();
         this.t = g.getTetrimino();
-        this.ui = new UI(g);
-        SwingUtilities.invokeLater(ui);
-        while (ui.getGamePanel() == null) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                System.out.println("hmm..");
-            }
-        }
-        this.g.setGamePanel(ui.getGamePanel());
     }
     
     @After
@@ -83,7 +72,40 @@ public class GameTest {
      }
      
      @Test
-     public void testRespawnToimii() {
-         
+     public void testUpdateLiikuttaaTetriminoaYhdenAlasJosMahdollista() {
+         int y = g.getTetrimino().getY();
+         g.update();
+         assertEquals(y+1, g.getTetrimino().getY());
+     }
+     
+     @Test
+     public void testUpdateEiTeeMitaanJosPause() {
+         int y = g.getTetrimino().getY();
+         g.pauseGame();
+         g.update();
+         assertEquals(y, g.getTetrimino().getY());
+     }
+     
+     @Test
+     public void testRespawnAsettaaSeuraavanTetriminonNykyiseksi() {
+         Tetrimino next = g.getNextTetrimino();
+         g.dropDown();
+         g.update();
+         assertEquals(next, g.getTetrimino());
+     }
+     
+     @Test
+     public void testPauseGameToimiiKunPausetetaan() {
+         g.pauseGame();
+         assertFalse(g.isRunning());
+         assertTrue(g.isPaused());
+     }
+     
+     @Test
+     public void testPauseGameToimiiKunPausetetaanPois() {
+         g.pauseGame();
+         g.pauseGame();
+         assertTrue(g.isRunning());
+         assertFalse(g.isPaused());
      }
 }
