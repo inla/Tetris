@@ -34,6 +34,7 @@ public class GamePanel extends JPanel {
         paintBackground(g);
         paintBoard(g);
         paintTetrimino(g);
+        repaint();
     }
 
     private void paintBackground(Graphics g) {
@@ -79,8 +80,8 @@ public class GamePanel extends JPanel {
         g.fill3DRect(x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE, true);
     }
 
-    @Override
-    public void repaint() {
-        super.repaint();
-    }
+//    @Override
+//    public void repaint() {
+//        super.repaint();
+//    }
 }
