@@ -9,3 +9,5 @@ Päivä | Tunnit | Kuvaus
 18.09.2016 | 2h | Checkstyle ja pit, luokkakaavion teko, tetriminojen toteutuksen uudelleen suunnittelua
 19.09.2016 | 4h | Luokkien koodausta/säätämistä ja lisää testejä
 23.09.2016 | 4h | Käyttöliittymän suunnittelua, muiden luokkien hiomista ja testejä
+26.09.2016 | 1h | Javadocien kirjottelua
+30.09.2016 | 4h | Käyttöliittymän ja pelin piirtämisen säätämistä, vähän lisää testejä
