@@ -11,3 +11,5 @@ Päivä | Tunnit | Kuvaus
 23.09.2016 | 4h | Käyttöliittymän suunnittelua, muiden luokkien hiomista ja testejä
 26.09.2016 | 1h | Javadocien kirjottelua
 30.09.2016 | 4h | Käyttöliittymän ja pelin piirtämisen säätämistä, vähän lisää testejä
+03.10.2016 | 2h | Ongelmia collides-metodin kanssa, sivupaneelin alotustyöt
+07.10.2016 | 5h | Ongelmat jatkuu.. Lisää testejä + javadoc, luokkakaavion päivitys, sekvenssikaaviot
