@@ -159,13 +159,6 @@ public class Tetrimino {
         return testX < board.getWidth() && testX >= 0 && testY < board.getHeight() && testY >= 0;
     }
 
-    /**
-     * Adds this tetrimino shape to the board.
-     */
-    public void addToBoard() {
-        this.board.addTetrimino(this);
-    }
-
     public int[][] getCurrentRotation() {
         return this.tetriminoRotations.get(this.rotation);
     }

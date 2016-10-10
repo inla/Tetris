@@ -26,7 +26,7 @@ public class GameTest {
     @Before
     public void setUp() {
         this.g = new Game();
-        this.t = g.getTetrimino();
+        this.t = g.getFallingTetrimino();
     }
     
     @After
@@ -36,7 +36,7 @@ public class GameTest {
      @Test
      public void testKonstruktoriToimii() {
          assertTrue(g.getBoard() != null);
-         assertTrue(g.getTetrimino() != null);
+         assertTrue(g.getFallingTetrimino() != null);
          assertTrue(g.getNextTetrimino() != null);
          assertTrue(g.getScore()== 0);
          assertTrue(g.getRemovedRows() == 0);
@@ -48,19 +48,19 @@ public class GameTest {
      @Test
      public void testTetriminoLiikkuuOikeinOikealle() {
          g.moveRight();
-         assertEquals(g.getBoard().getWidth()/2, g.getTetrimino().getX());
+         assertEquals(g.getBoard().getWidth()/2, g.getFallingTetrimino().getX());
      }
      
      @Test
      public void testTetriminoLiikkuuOikeinVasemmalle() {
          g.moveLeft();
-         assertEquals(g.getBoard().getWidth()/2-2, g.getTetrimino().getX());
+         assertEquals(g.getBoard().getWidth()/2-2, g.getFallingTetrimino().getX());
      }
      
      @Test
      public void testTetriminoLiikkuuOikeinAlas() {
          g.moveDown();
-         assertEquals(1, g.getTetrimino().getY());
+         assertEquals(1, g.getFallingTetrimino().getY());
          
      }
      
@@ -68,22 +68,22 @@ public class GameTest {
      public void testTetriminoPyoriiOikein() {
          int[][] next = t.getNextRotation();
          g.rotate();
-         assertArrayEquals(next, g.getTetrimino().getCurrentRotation());
+         assertArrayEquals(next, g.getFallingTetrimino().getCurrentRotation());
      }
      
      @Test
      public void testUpdateLiikuttaaTetriminoaYhdenAlasJosMahdollista() {
-         int y = g.getTetrimino().getY();
+         int y = g.getFallingTetrimino().getY();
          g.update();
-         assertEquals(y+1, g.getTetrimino().getY());
+         assertEquals(y+1, g.getFallingTetrimino().getY());
      }
      
      @Test
      public void testUpdateEiTeeMitaanJosPause() {
-         int y = g.getTetrimino().getY();
+         int y = g.getFallingTetrimino().getY();
          g.pauseGame();
          g.update();
-         assertEquals(y, g.getTetrimino().getY());
+         assertEquals(y, g.getFallingTetrimino().getY());
      }
      
      @Test
@@ -91,7 +91,7 @@ public class GameTest {
          Tetrimino next = g.getNextTetrimino();
          g.dropDown();
          g.update();
-         assertEquals(next, g.getTetrimino());
+         assertEquals(next, g.getFallingTetrimino());
      }
      
      @Test

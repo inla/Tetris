@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import tetris.ui.GamePanel;
+import tetris.ui.SidePanel;
 
 /**
  * Handels the game logic.
@@ -15,7 +16,7 @@ import tetris.ui.GamePanel;
 public class Game implements ActionListener {
 
     private Board board;
-    private Tetrimino tetrimino;
+    private Tetrimino fallingTetrimino;
     private Tetrimino nextTetrimino;
     private boolean gameOver;
     private boolean paused;
@@ -25,13 +26,14 @@ public class Game implements ActionListener {
     private int score;
     private int level;
     private GamePanel gamePanel;
+    private SidePanel sidePanel;
 
     /**
      * Creates a new game.
      */
     public Game() {
         this.board = new Board();
-        this.tetrimino = new Tetrimino(this.board);
+        this.fallingTetrimino = new Tetrimino(this.board);
         this.nextTetrimino = new Tetrimino(this.board);
         this.gameOver = false;
         this.paused = false;
@@ -40,7 +42,6 @@ public class Game implements ActionListener {
         this.removedRows = 0;
         this.score = 0;
         this.level = 1;
-
     }
 
     /**
@@ -71,25 +72,25 @@ public class Game implements ActionListener {
             return;
         }
         if (running) {
-            if (this.tetrimino.canMove(Direction.DOWN)) {
+            if (this.fallingTetrimino.canMove(Direction.DOWN)) {
                 moveDown();
             } else {
                 respawn();
+                this.sidePanel.repaint();
             }
         }
-
     }
 
     private void respawn() {
-        this.tetrimino.addToBoard();
-        this.tetrimino = getNextTetrimino();
+        this.board.addTetrimino(this.fallingTetrimino);
+        this.fallingTetrimino = getNextTetrimino();
         this.nextTetrimino = new Tetrimino(board);
         int removed = this.board.removeFullRows();
         this.score += 100 * removed * level;            //keksi parempi kaava?
         this.removedRows += removed;
         this.level = this.score / 10000 + 1;            // ^
 
-        if (!this.tetrimino.canMove(Direction.DOWN)) {
+        if (!this.fallingTetrimino.canMove(Direction.DOWN)) {
             this.gameOver = true;
         }
     }
@@ -99,7 +100,7 @@ public class Game implements ActionListener {
      */
     public void moveRight() {
         if (running) {
-            this.tetrimino.moveRight();
+            this.fallingTetrimino.moveRight();
         }
     }
 
@@ -108,7 +109,7 @@ public class Game implements ActionListener {
      */
     public void moveLeft() {
         if (running) {
-            this.tetrimino.moveLeft();
+            this.fallingTetrimino.moveLeft();
         }
     }
 
@@ -117,7 +118,7 @@ public class Game implements ActionListener {
      */
     public void moveDown() {
         if (running) {
-            this.tetrimino.moveDown();
+            this.fallingTetrimino.moveDown();
         }
     }
 
@@ -126,7 +127,7 @@ public class Game implements ActionListener {
      */
     public void dropDown() {
         if (running) {
-            this.tetrimino.dropDown();
+            this.fallingTetrimino.dropDown();
         }
     }
 
@@ -135,7 +136,7 @@ public class Game implements ActionListener {
      */
     public void rotate() {
         if (running) {
-            this.tetrimino.rotate();
+            this.fallingTetrimino.rotate();
         }
     }
 
@@ -143,8 +144,8 @@ public class Game implements ActionListener {
         return board;
     }
 
-    public Tetrimino getTetrimino() {
-        return tetrimino;
+    public Tetrimino getFallingTetrimino() {
+        return fallingTetrimino;
     }
 
     public Tetrimino getNextTetrimino() {
@@ -182,15 +183,17 @@ public class Game implements ActionListener {
         if (running) {
             this.paused = true;
             this.running = false;
-
         } else {
             this.running = true;
             this.paused = false;
         }
-
     }
 
     public void setGamePanel(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
+    }
+
+    public void setSidePanel(SidePanel sidePanel) {
+        this.sidePanel = sidePanel;
     }
 }

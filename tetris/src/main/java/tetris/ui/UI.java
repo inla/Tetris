@@ -54,6 +54,10 @@ public class UI implements Runnable {
         return gamePanel;
     }
 
+    public SidePanel getSidePanel() {
+        return sidePanel;
+    }
+
     public JFrame getFrame() {
         return frame;
     }
