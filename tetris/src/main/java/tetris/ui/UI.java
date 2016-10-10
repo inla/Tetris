@@ -53,7 +53,7 @@ public class UI implements Runnable {
         int width = SQUARE_SIZE * this.game.getBoard().getWidth();
         int height = SQUARE_SIZE * this.game.getBoard().getHeight();
         this.gamePanel.setPreferredSize(new Dimension(width, height));
-        this.sidePanel.setPreferredSize(new Dimension(width, height));
+        this.sidePanel.setPreferredSize(new Dimension(width-SQUARE_SIZE, height));
     }
 
     public GamePanel getGamePanel() {

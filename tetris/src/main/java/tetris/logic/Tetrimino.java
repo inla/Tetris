@@ -14,7 +14,7 @@ public class Tetrimino {
 
     private TetriminoType type;
     private ArrayList<int[][]> tetriminoRotations;
-    private int rotation;
+    private int rotationNumber;
     private Color color;
     private int x;
     private int y;
@@ -31,7 +31,7 @@ public class Tetrimino {
 
     /**
      * Creates a new Tetrimino. Defines its possible rotations, the current
-     * rotation's number and its starting point on the board.
+     * rotation's number, its starting point on the board and color.
      *
      * @param board the board where this tetrimino appears
      * @param type the type of this tetrimino
@@ -40,7 +40,7 @@ public class Tetrimino {
         this.board = board;
         this.type = type;
         this.tetriminoRotations = this.type.getRotations();
-        this.rotation = 0;
+        this.rotationNumber = 0;
         this.color = this.type.getColor();
         this.x = board.getWidth() / 2 - 1;
         this.y = 0;
@@ -102,10 +102,10 @@ public class Tetrimino {
 //            return;
 //        }
         if (!collides(null)) {
-            if (this.rotation + 1 < this.type.getMaxRotation()) {
-                this.rotation++;
+            if (this.rotationNumber + 1 < this.type.getMaxRotation()) {
+                this.rotationNumber++;
             } else {
-                this.rotation = 0;
+                this.rotationNumber = 0;
             }
         }
     }
@@ -157,7 +157,7 @@ public class Tetrimino {
     }
 
     public int[][] getCurrentRotation() {
-        return this.tetriminoRotations.get(this.rotation);
+        return this.tetriminoRotations.get(this.rotationNumber);
     }
 
     /**
@@ -167,14 +167,14 @@ public class Tetrimino {
      * @return next rotation shape
      */
     public int[][] getNextRotation() {
-        if (this.rotation + 1 < this.type.getMaxRotation()) {
-            return this.tetriminoRotations.get(this.rotation + 1);
+        if (this.rotationNumber + 1 < this.type.getMaxRotation()) {
+            return this.tetriminoRotations.get(this.rotationNumber + 1);
         }
         return this.tetriminoRotations.get(0);
     }
 
     public int getRotationNumber() {
-        return rotation;
+        return rotationNumber;
     }
 
     public int getX() {

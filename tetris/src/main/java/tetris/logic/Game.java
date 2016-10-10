@@ -31,11 +31,11 @@ public class Game implements ActionListener {
      * Creates a new game.
      */
     public Game() {
-        initialize();
+        initialize();   //new game ja timer täällä, initializessa emptyboard ja timer.restart??
     }
 
     /**
-     * Starts the timer.
+     * Starts the timer and the game.
      */
     public void start() {
         this.timer.start();
@@ -72,7 +72,7 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Updates the game.
+     * Updates the game. 
      */
     public void update() {
         if (this.gameOver) {
@@ -92,12 +92,13 @@ public class Game implements ActionListener {
         this.fallingTetrimino = getNextTetrimino();
         this.nextTetrimino = new Tetrimino(board);
         int removed = this.board.removeFullRows();
-        this.score += 100 * removed * level;            //keksi parempi kaava?
-        this.level = this.score / 10000 + 1;            // ^
+        this.score += 100 * removed * removed * level;  //keksi parempi kaava?
+        this.level = this.score / 2000 + 1;            // ^
 
         if (!this.fallingTetrimino.canMove(Direction.DOWN)) {
             this.gameOver = true;
             this.running = false;
+            this.timer.stop();
         }
     }
 

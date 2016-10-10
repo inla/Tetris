@@ -38,6 +38,7 @@ public class KeyboardListener implements KeyListener {
             this.game.pauseGame();
         } else if (e.getKeyCode() == KeyEvent.VK_F1) {
             this.game.initialize();
+            this.game.start();
         }
         this.game.repaint();
     }

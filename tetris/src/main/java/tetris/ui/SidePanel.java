@@ -13,7 +13,7 @@ import tetris.logic.Game;
  */
 public class SidePanel extends JPanel {
 
-    private final int squareSize;
+    private int squareSize;
     private Game game;
 
     /**
@@ -23,20 +23,22 @@ public class SidePanel extends JPanel {
      * @param squareSize size of the squares
      */
     public SidePanel(Game game, int squareSize) {
-        super.setBackground(Color.BLACK);
-        this.squareSize = squareSize;
         this.game = game;
+        this.squareSize = squareSize;
+        super.setBackground(Color.BLACK);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         g.setColor(Color.LIGHT_GRAY);
         g.setFont(new Font("Tahoma", Font.BOLD, 12));
-        paintPreview(g);
+        if (!this.game.isGameOver()) {
+            paintPreview(g);
+        }
+
         g.setColor(Color.LIGHT_GRAY);
-        paintScore(g);
-        paintLevel(g);
         paintInfo(g);
     }
 
@@ -50,8 +52,8 @@ public class SidePanel extends JPanel {
         for (int i = 0; i < tetr.length; i++) {
             for (int j = 0; j < tetr[i].length; j++) {
                 if (tetr[i][j] != 0) {
-                    int x = this.game.getNextTetrimino().getX() + i;
-                    int y = this.game.getNextTetrimino().getY() + j + 1;
+                    int x = this.game.getNextTetrimino().getX() + j;
+                    int y = this.game.getNextTetrimino().getY() + i + 1;
                     Color c = this.game.getNextTetrimino().getColor();
                     paintPoint(g, x, y, c);
                 }
@@ -60,28 +62,27 @@ public class SidePanel extends JPanel {
     }
 
     private void paintPoint(Graphics g, int x, int y, Color c) {
+        if (this.game.isPaused()) {
+            c = c.darker().darker();
+        }
         g.setColor(c);
         g.fill3DRect(x * squareSize, y * squareSize, squareSize, squareSize, true);
     }
 
-    private void paintScore(Graphics g) {
-        g.drawString("Score: " + this.game.getScore(), squareSize, 7 * squareSize);
-    }
-
-    private void paintLevel(Graphics g) {
-        g.drawString("Level: " + this.game.getLevel(), squareSize, 9 * squareSize);
-    }
-
     private void paintInfo(Graphics g) {
+        g.drawString("Score: " + this.game.getScore(), squareSize, 6 * squareSize);
+
+        g.drawString("Level: " + this.game.getLevel(), squareSize, 8 * squareSize);
+
         g.drawString("Controls:", squareSize, 11 * squareSize);
         g.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        g.drawString("F1    new game", squareSize, 12 * squareSize);
-        g.drawString("P      pause/continue", squareSize, 13 * squareSize);
-        g.drawString("↓     down", squareSize, 14 * squareSize);
-        g.drawString("→     right", squareSize, 15 * squareSize);
-        g.drawString("←     left", squareSize, 16 * squareSize);
-        g.drawString("↑     rotate", squareSize, 17 * squareSize);
-        g.drawString("spacebar drop", squareSize, 18 * squareSize);
+        g.drawString("F1            new game", squareSize, 12 * squareSize);
+        g.drawString("P              pause/continue", squareSize, 13 * squareSize);
+        g.drawString("↓              down", squareSize, 14 * squareSize);
+        g.drawString("→              right", squareSize, 15 * squareSize);
+        g.drawString("←              left", squareSize, 16 * squareSize);
+        g.drawString("↑              rotate", squareSize, 17 * squareSize);
+        g.drawString("spacebar  drop", squareSize, 18 * squareSize);
     }
 
     @Override

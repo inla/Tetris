@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tetris.ui.UI;
 
 /**
  *
@@ -15,7 +14,6 @@ public class GameTest {
 
     private Game g;
     private Tetrimino t;
-    private UI ui;
 
     public GameTest() {
     }

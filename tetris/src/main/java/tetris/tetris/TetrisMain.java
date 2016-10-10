@@ -14,7 +14,7 @@ public class TetrisMain {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
-                System.out.println("hmm..");
+                System.out.println(ex.getMessage());
             }
         }
         g.setGamePanel(ui.getGamePanel());
