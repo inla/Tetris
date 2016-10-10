@@ -3,7 +3,7 @@ package tetris.logic;
 import java.awt.Color;
 
 /**
- * Represents the game board of Tetris. It is defined as a 2-dimenional integer
+ * Represents the game board of Tetris. It is defined as a 2-dimensional integer
  * table, where 0 means an empty point.
  *
  * @author inka
@@ -69,11 +69,11 @@ public class Board {
      *
      * @param x x coordinate
      * @param y y coordinate
-     * @return true if the point is empty, false otherwise
+     * @return true if the point is empty or above the board, false otherwise
      */
     public boolean isPointEmpty(int x, int y) {
         if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {
-            return x >= 0 && x < WIDTH && y < 0;    //true jos laudan yläpuolella
+            return x >= 0 && x < WIDTH && y < 0;
         } else {
             return this.board[y][x] == 0;
         }
@@ -176,7 +176,7 @@ public class Board {
         } else if (point == 2) {
             return Color.BLUE;
         } else if (point == 3) {
-            return Color.ORANGE;
+            return new Color(255, 137, 0);
         } else if (point == 4) {
             return Color.YELLOW;
         } else if (point == 5) {

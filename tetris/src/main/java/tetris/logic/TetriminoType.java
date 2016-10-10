@@ -44,6 +44,8 @@ public enum TetriminoType {
                 this.color = Color.BLUE;
                 this.maxRotation = 4;
                 this.rotations = new ArrayList();
+                this.rotations.add(new int[][]{ {2, 2, 2},
+                                                {0, 0, 2}});
                 this.rotations.add(new int[][]{ {0, 2},
                                                 {0, 2},
                                                 {2, 2}});
@@ -52,14 +54,15 @@ public enum TetriminoType {
                 this.rotations.add(new int[][]{ {2, 2},
                                                 {2, 0},
                                                 {2, 0}});
-                this.rotations.add(new int[][]{ {2, 2, 2},
-                                                {0, 0, 2}});
+                
                 break;
 
             case 3:     //L
-                this.color = Color.ORANGE;
+                this.color = new Color(255, 137, 0);    //orange
                 this.maxRotation = 4;
                 this.rotations = new ArrayList();
+                this.rotations.add(new int[][]{ {0, 0, 3},
+                                                {3, 3, 3}});
                 this.rotations.add(new int[][]{ {3, 0},
                                                 {3, 0},
                                                 {3, 3}});
@@ -68,8 +71,7 @@ public enum TetriminoType {
                 this.rotations.add(new int[][]{ {3, 3},
                                                 {0, 3},
                                                 {0, 3}});
-                this.rotations.add(new int[][]{ {0, 0, 3},
-                                                {3, 3, 3}});
+                
                 break;
 
             case 4:     //O

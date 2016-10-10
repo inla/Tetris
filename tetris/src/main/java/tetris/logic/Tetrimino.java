@@ -70,9 +70,6 @@ public class Tetrimino {
      * Decreases the tetrimino's x coordinate by one if it's possible.
      */
     public void moveLeft() {
-        if (this.x == 0) {
-            return;
-        }
         if (canMove(Direction.LEFT)) {
             this.x--;
         }
@@ -114,8 +111,8 @@ public class Tetrimino {
     }
 
     /**
-     * Checks if the given tetrimino shape collides with anything in the given
-     * direction.
+     * Checks if this tetrimino shape collides with anything in the given
+     * direction. If the direction is null, checks the next rotation shape.
      *
      * @param direction the direction to be checked
      * @return true if collides, false otherwise
@@ -149,7 +146,7 @@ public class Tetrimino {
     }
 
     /**
-     * Checks if given coordinate point is inside the board.
+     * Checks if the given coordinate point is inside the board.
      *
      * @param testX x coordinate
      * @param testY y coordinate
@@ -163,11 +160,21 @@ public class Tetrimino {
         return this.tetriminoRotations.get(this.rotation);
     }
 
+    /**
+     * Gets the shape of the next rotation from the tetrimino's list of
+     * rotations.
+     *
+     * @return next rotation shape
+     */
     public int[][] getNextRotation() {
         if (this.rotation + 1 < this.type.getMaxRotation()) {
             return this.tetriminoRotations.get(this.rotation + 1);
         }
         return this.tetriminoRotations.get(0);
+    }
+
+    public int getRotationNumber() {
+        return rotation;
     }
 
     public int getX() {

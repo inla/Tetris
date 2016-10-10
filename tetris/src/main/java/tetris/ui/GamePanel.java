@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import tetris.logic.Board;
 import tetris.logic.Game;
-import tetris.logic.Tetrimino;
 
 /**
  * Draws the current situation of the game.
@@ -18,6 +16,12 @@ public class GamePanel extends JPanel {
     private Game game;
     private final int SQUARE_SIZE;
 
+    /**
+     * Creates the game panel.
+     *
+     * @param game current game
+     * @param squaresize size of the squares
+     */
     public GamePanel(Game game, int squaresize) {
         super.setBackground(Color.BLACK);
         this.game = game;
@@ -80,6 +84,7 @@ public class GamePanel extends JPanel {
     }
 
     private void paintGameOver(Graphics g) {
+        paintDarkerBoard(g);
         int x = (this.game.getBoard().getWidth() * SQUARE_SIZE) / 4 - SQUARE_SIZE;
         int y = (this.game.getBoard().getHeight() * SQUARE_SIZE) / 2 - SQUARE_SIZE;
         g.setColor(Color.WHITE);
@@ -88,6 +93,18 @@ public class GamePanel extends JPanel {
         g.drawString("OVER", x, y + SQUARE_SIZE * 3);
     }
 
+    private void paintDarkerBoard(Graphics g) {
+        for (int y = 0; y < this.game.getBoard().getHeight(); y++) {
+            for (int x = 0; x < this.game.getBoard().getWidth(); x++) {
+                if (!this.game.getBoard().isPointEmpty(x, y)) {
+                    Color c = this.game.getBoard().getPointColor(x, y);
+                    c = c.darker().darker();
+                    paintPoint(g, x, y, c);
+                }
+            }
+        }
+    }
+    
     @Override
     public void repaint() {
         super.repaint();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tetris.ui;
 
 import java.awt.Color;
@@ -10,10 +5,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import tetris.logic.Game;
-import tetris.logic.Tetrimino;
 
 /**
- * Panel that shows score and next tetrimino.
+ * Panel that shows information of the game.
  *
  * @author inka
  */
@@ -21,9 +15,6 @@ public class SidePanel extends JPanel {
 
     private final int squareSize;
     private Game game;
-    private int score;
-    private int removedRows;
-    private int level;
 
     /**
      * Creates the side panel.
@@ -35,9 +26,6 @@ public class SidePanel extends JPanel {
         super.setBackground(Color.BLACK);
         this.squareSize = squareSize;
         this.game = game;
-        this.score = this.game.getScore();
-        this.removedRows = this.game.getRemovedRows();
-        this.level = this.game.getLevel();
     }
 
     @Override
@@ -88,7 +76,7 @@ public class SidePanel extends JPanel {
         g.drawString("Controls:", squareSize, 11 * squareSize);
         g.setFont(new Font("Tahoma", Font.PLAIN, 12));
         g.drawString("F1    new game", squareSize, 12 * squareSize);
-        g.drawString("P     pause", squareSize, 13 * squareSize);
+        g.drawString("P      pause/continue", squareSize, 13 * squareSize);
         g.drawString("↓     down", squareSize, 14 * squareSize);
         g.drawString("→     right", squareSize, 15 * squareSize);
         g.drawString("←     left", squareSize, 16 * squareSize);

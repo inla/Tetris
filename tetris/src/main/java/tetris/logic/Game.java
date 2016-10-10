@@ -22,7 +22,6 @@ public class Game implements ActionListener {
     private boolean paused;
     private boolean running;
     private Timer timer;
-    private int removedRows;
     private int score;
     private int level;
     private GamePanel gamePanel;
@@ -32,16 +31,7 @@ public class Game implements ActionListener {
      * Creates a new game.
      */
     public Game() {
-        this.board = new Board();
-        this.fallingTetrimino = new Tetrimino(this.board);
-        this.nextTetrimino = new Tetrimino(this.board);
-        this.gameOver = false;
-        this.paused = false;
-        this.running = true;
-        this.timer = new Timer(1000, this);
-        this.removedRows = 0;
-        this.score = 0;
-        this.level = 1;
+        initialize();
     }
 
     /**
@@ -52,20 +42,37 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Calls the game panels repaint-method.
+     * Initializes the game by setting the values of the attributes to their
+     * starting values.
+     */
+    public void initialize() {
+        this.board = new Board();
+        this.fallingTetrimino = new Tetrimino(this.board);
+        this.nextTetrimino = new Tetrimino(this.board);
+        this.gameOver = false;
+        this.paused = false;
+        this.running = true;
+        this.timer = new Timer(1000, this);
+        this.score = 0;
+        this.level = 1;
+    }
+
+    /**
+     * Calls the game and side panels' repaint-method.
      */
     public void repaint() {
         this.gamePanel.repaint();
+        this.sidePanel.repaint();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         update();
-        this.gamePanel.repaint();
+        repaint();
     }
 
     /**
-     * Updates game.
+     * Updates the game.
      */
     public void update() {
         if (this.gameOver) {
@@ -73,10 +80,9 @@ public class Game implements ActionListener {
         }
         if (running) {
             if (this.fallingTetrimino.canMove(Direction.DOWN)) {
-                moveDown();
+                moveTetrimino(Direction.DOWN);
             } else {
                 respawn();
-                this.sidePanel.repaint();
             }
         }
     }
@@ -87,56 +93,32 @@ public class Game implements ActionListener {
         this.nextTetrimino = new Tetrimino(board);
         int removed = this.board.removeFullRows();
         this.score += 100 * removed * level;            //keksi parempi kaava?
-        this.removedRows += removed;
         this.level = this.score / 10000 + 1;            // ^
 
         if (!this.fallingTetrimino.canMove(Direction.DOWN)) {
             this.gameOver = true;
+            this.running = false;
         }
     }
 
     /**
-     * Calls tetriminos moveRight()-method and repaints the game.
+     * Directs the command to the right tetrimino's method.
+     *
+     * @param direction direction to be moved
      */
-    public void moveRight() {
-        if (running) {
-            this.fallingTetrimino.moveRight();
-        }
-    }
-
-    /**
-     * Calls tetriminos moveLeft()-method and repaints the game.
-     */
-    public void moveLeft() {
-        if (running) {
-            this.fallingTetrimino.moveLeft();
-        }
-    }
-
-    /**
-     * Calls tetriminos moveDown()-method and repaints the game.
-     */
-    public void moveDown() {
-        if (running) {
-            this.fallingTetrimino.moveDown();
-        }
-    }
-
-    /**
-     * Calls tetriminos dropDown()-method and repaints the game.
-     */
-    public void dropDown() {
-        if (running) {
-            this.fallingTetrimino.dropDown();
-        }
-    }
-
-    /**
-     * Calls tetriminos rotate()-method and repaints the game.
-     */
-    public void rotate() {
-        if (running) {
-            this.fallingTetrimino.rotate();
+    public void moveTetrimino(Direction direction) {
+        if (isRunning()) {
+            if (direction == Direction.RIGHT) {
+                this.fallingTetrimino.moveRight();
+            } else if (direction == Direction.LEFT) {
+                this.fallingTetrimino.moveLeft();
+            } else if (direction == Direction.DOWN) {
+                this.fallingTetrimino.moveDown();
+            } else if (direction == Direction.UP) {
+                this.fallingTetrimino.rotate();
+            } else if (direction == null) {
+                this.fallingTetrimino.dropDown();
+            }
         }
     }
 
@@ -150,10 +132,6 @@ public class Game implements ActionListener {
 
     public Tetrimino getNextTetrimino() {
         return nextTetrimino;
-    }
-
-    public int getRemovedRows() {
-        return removedRows;
     }
 
     public int getScore() {

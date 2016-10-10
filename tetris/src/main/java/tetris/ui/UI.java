@@ -7,6 +7,7 @@ import javax.swing.*;
 import tetris.logic.Game;
 
 /**
+ * The user interface of tetris.
  *
  * @author inka
  */
@@ -18,6 +19,11 @@ public class UI implements Runnable {
     private SidePanel sidePanel;
     private final static int SQUARE_SIZE = 24;
 
+    /**
+     * Creates the user interface.
+     *
+     * @param game the logic that needs user interface
+     */
     public UI(Game game) {
         this.game = game;
     }
