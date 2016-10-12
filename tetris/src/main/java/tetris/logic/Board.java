@@ -170,21 +170,11 @@ public class Board {
      * @return color of the point
      */
     public Color getPointColor(int x, int y) {
-        int point = getPoint(x, y);
-        if (point == 1) {
-            return Color.CYAN;
-        } else if (point == 2) {
-            return Color.BLUE;
-        } else if (point == 3) {
-            return new Color(255, 137, 0);
-        } else if (point == 4) {
-            return Color.YELLOW;
-        } else if (point == 5) {
-            return Color.GREEN;
-        } else if (point == 6) {
-            return Color.MAGENTA;
-        } else if (point == 7) {
-            return Color.RED;
+        int colorCode = getPoint(x, y);
+        for (TetriminoType type : TetriminoType.values()) {
+            if (type.getType() == colorCode) {
+                return type.getColor();
+            }
         }
         return null;
     }

@@ -20,10 +20,10 @@ public class Game implements ActionListener {
     private Tetrimino nextTetrimino;
     private boolean gameOver;
     private boolean paused;
-    private boolean running;
     private Timer timer;
     private int score;
     private int level;
+    private int removedRowsTotal;
     private GamePanel gamePanel;
     private SidePanel sidePanel;
 
@@ -31,7 +31,9 @@ public class Game implements ActionListener {
      * Creates a new game.
      */
     public Game() {
-        initialize();   //new game ja timer täällä, initializessa emptyboard ja timer.restart??
+        this.board = new Board();
+        this.timer = new Timer(1000, this);
+        initialize();
     }
 
     /**
@@ -46,15 +48,15 @@ public class Game implements ActionListener {
      * starting values.
      */
     public void initialize() {
-        this.board = new Board();
+        this.board.emptyBoard();
         this.fallingTetrimino = new Tetrimino(this.board);
         this.nextTetrimino = new Tetrimino(this.board);
         this.gameOver = false;
         this.paused = false;
-        this.running = true;
-        this.timer = new Timer(1000, this);
         this.score = 0;
         this.level = 1;
+        this.removedRowsTotal = 0;
+        this.timer.restart();
     }
 
     /**
@@ -72,14 +74,11 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Updates the game. 
+     * Updates the game if the game is not over or paused.
      */
     public void update() {
-        if (this.gameOver) {
-            return;
-        }
-        if (running) {
-            if (this.fallingTetrimino.canMove(Direction.DOWN)) {
+        if (!isGameOver() && !isPaused()) {
+            if (canContinue()) {
                 moveTetrimino(Direction.DOWN);
             } else {
                 respawn();
@@ -92,23 +91,37 @@ public class Game implements ActionListener {
         this.fallingTetrimino = getNextTetrimino();
         this.nextTetrimino = new Tetrimino(board);
         int removed = this.board.removeFullRows();
-        this.score += 100 * removed * removed * level;  //keksi parempi kaava?
-        this.level = this.score / 2000 + 1;            // ^
-
-        if (!this.fallingTetrimino.canMove(Direction.DOWN)) {
-            this.gameOver = true;
-            this.running = false;
-            this.timer.stop();
+        updateStats(removed);
+        if (!canContinue()) {
+            gameOver();
         }
     }
 
+    private void updateStats(int removedRows) {
+        if (removedRows > 0) {
+            this.score += 100 * (removedRows * removedRows + (level - 1));
+            this.removedRowsTotal += removedRows;
+        }
+        this.level = this.removedRowsTotal / 10 + 1;       // keksi parempi kaava?
+        this.timer.setDelay(Math.max(1050 - level * 50, 10));
+    }
+
+    private void gameOver() {
+        this.gameOver = true;
+        this.timer.stop();
+    }
+
+    private boolean canContinue() {
+        return this.fallingTetrimino.canMove(Direction.DOWN);
+    }
+
     /**
-     * Directs the command to the right tetrimino's method.
+     * Directs the moving command to the right method of tetrimino.
      *
      * @param direction direction to be moved
      */
     public void moveTetrimino(Direction direction) {
-        if (isRunning()) {
+        if (!isGameOver() && !isPaused()) {
             if (direction == Direction.RIGHT) {
                 this.fallingTetrimino.moveRight();
             } else if (direction == Direction.LEFT) {
@@ -147,24 +160,22 @@ public class Game implements ActionListener {
         return gameOver;
     }
 
-    public boolean isRunning() {
-        return running;
-    }
-
     public boolean isPaused() {
         return paused;
     }
 
     /**
-     * Sets the game paused or running.
+     * Sets the game paused or unpaused.
      */
     public void pauseGame() {
-        if (running) {
-            this.paused = true;
-            this.running = false;
-        } else {
-            this.running = true;
-            this.paused = false;
+        if (!isGameOver()) {
+            if (isPaused()) {
+                this.paused = false;
+                timer.start();
+            } else {
+                this.paused = true;
+                timer.stop();
+            }
         }
     }
 
@@ -174,5 +185,9 @@ public class Game implements ActionListener {
 
     public void setSidePanel(SidePanel sidePanel) {
         this.sidePanel = sidePanel;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 }

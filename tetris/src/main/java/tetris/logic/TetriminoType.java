@@ -19,12 +19,14 @@ public enum TetriminoType {
     T(6),
     Z(7);
 
+    private final int type;
     private Color color;
     private int maxRotation;
     private ArrayList<int[][]> rotations;
 
     private TetriminoType(int type) {
         makeTetrimino(type);
+        this.type = type;
     }
 
     private void makeTetrimino(int type) {
@@ -120,6 +122,10 @@ public enum TetriminoType {
                                                 {7, 0}});
                 break;
         }
+    }
+
+    public int getType() {
+        return type;
     }
 
     public ArrayList<int[][]> getRotations() {

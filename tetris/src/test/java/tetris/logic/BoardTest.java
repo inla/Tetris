@@ -151,6 +151,14 @@ public class BoardTest {
     }
 
     @Test
+    public void testRemoveRowEiTeeMitaanJosYLaudanUlkopuolella() {
+        this.b.setPoint(1, 1, 1);
+        this.b.removeRow(-1);
+        this.b.removeRow(20);
+        assertEquals(1, this.b.getPoint(1, 1));
+    }
+
+    @Test
     public void testRemoveFullRowsToimii() {
         for (int i = 0; i < b.getWidth(); i++) {
             b.getBoard()[2][i] = 1;

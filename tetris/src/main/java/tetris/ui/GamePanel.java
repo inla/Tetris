@@ -13,8 +13,8 @@ import tetris.logic.Game;
  */
 public class GamePanel extends JPanel {
 
-    private Game game;
-    private int squareSize;
+    private final Game game;
+    private final int squareSize;
 
     /**
      * Creates the game panel.
@@ -38,8 +38,7 @@ public class GamePanel extends JPanel {
 
         if (this.game.isGameOver()) {
             paintGameOver(g);
-        }
-        if (this.game.isPaused()) {
+        } else if (this.game.isPaused()) {
             paintPaused(g);
         }
     }

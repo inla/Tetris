@@ -13,8 +13,8 @@ import tetris.logic.Game;
  */
 public class SidePanel extends JPanel {
 
-    private int squareSize;
-    private Game game;
+    private final int squareSize;
+    private final Game game;
 
     /**
      * Creates the side panel.

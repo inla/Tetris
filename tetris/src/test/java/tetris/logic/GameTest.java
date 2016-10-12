@@ -29,12 +29,12 @@ public class GameTest {
     }
 
     @Test
-    public void testKonstruktoriToimii() {
+    public void testKonstruktoriAlustuksetToimii() {
         assertTrue(g.getBoard() != null);
         assertTrue(g.getFallingTetrimino() != null);
         assertTrue(g.getNextTetrimino() != null);
-        assertTrue(g.getScore() == 0);
-        assertTrue(g.isRunning());
+        assertEquals(0, g.getScore());
+        assertEquals(1, g.getLevel());
         assertFalse(g.isGameOver());
         assertFalse(g.isPaused());
     }
@@ -91,15 +91,31 @@ public class GameTest {
     @Test
     public void testPauseGameToimiiKunPausetetaan() {
         g.pauseGame();
-        assertFalse(g.isRunning());
         assertTrue(g.isPaused());
+        assertFalse(g.getTimer().isRunning());
     }
 
     @Test
     public void testPauseGameToimiiKunPausetetaanPois() {
         g.pauseGame();
         g.pauseGame();
-        assertTrue(g.isRunning());
         assertFalse(g.isPaused());
+        assertTrue(g.getTimer().isRunning());
+    }
+
+    @Test
+    public void testTimerKaynnistyyOikein() {
+        g.start();
+        assertTrue(g.getTimer().isRunning());
+    }
+
+    @Test
+    public void testGameOverStoppaaTimerin() {
+        while (!g.isGameOver()) {
+            g.moveTetrimino(null);
+            g.update();
+        }
+        assertTrue(g.isGameOver());
+        assertFalse(g.getTimer().isRunning());
     }
 }
