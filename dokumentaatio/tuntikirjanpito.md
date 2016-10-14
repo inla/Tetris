@@ -14,4 +14,4 @@ Päivä | Tunnit | Kuvaus
 03.10.2016 | 2h | Ongelmia collides-metodin kanssa, sivupaneelin alotustyöt
 07.10.2016 | 5h | Ongelmat jatkuu.. Lisää testejä + javadoc, luokkakaavion päivitys, sekvenssikaaviot
 10.10.2016 | 7h | Paneelien kanssa säätämistä; sivupaneelin kunnostus, game over ja paused piirtäminen ja putoava tetrimino piirtyy vihdoin oikein! Lisäksi kaikkien luokkien tarkistelua ja siistimistä, javadocit kuntoon, testien tarkastus
-14.10.2016 | 5h | AbstractPanelin luonti, Timerin periminen Game-luokassa ja sen nopeutumisen säätäminen, luokkakaavion päivitys ja rakennekuvaus
+14.10.2016 | 5h | AbstractPanelin luonti, Timerin periminen Game-luokassa ja sen nopeutumisen säätäminen, luokkakaavion päivitys, rakennekuvaus ja käyttöohjeet, ongelmia jar-tiedoston kanssa
