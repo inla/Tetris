@@ -1,5 +1,4 @@
 ### Aihemäärittely
-&nbsp;
 
 **Aihe:** Tetris-peli
 
@@ -15,8 +14,6 @@ Palikoita eli tetrominoja on seitsemän erilaista ja kaikki koostuvat neljästä
  * pelin lopetus
  * ohjelmasta poistuminen
  * tetriminon liikuttaminen
-
-&nbsp;
 
 &nbsp;
 
@@ -42,7 +39,6 @@ Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraava
 **Sekvenssikaavioita**
 
 &nbsp;
-
 
 ![pelin käynnistys](/dokumentaatio/start.png)
 
