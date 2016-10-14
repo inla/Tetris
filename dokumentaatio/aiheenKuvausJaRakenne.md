@@ -17,7 +17,15 @@ Palikoita eli tetrominoja on seitsemän erilaista ja kaikki koostuvat neljästä
  * näppäinten painaminen
 
 
+### Rakennekuvaus
 
+Ohjelma koostuu logiikasta ja käyttöliittymästä, ja niiden yhteysluokkana toimivasta Game-luokasta. 
+
+Logiikkaan kuuluvat luokat Tetrimino, TetriminoType ja Board. TetriminoType on enum-luokka ja määrittelee erilaiset tetriminotyypit ja niiden kaikki mahdolliset rotaatiot. Tetrimino puolestaan kuvaa tietyntyyppistä tetriminoa ja Board pelilautaa.
+
+Käyttöliittymäpakettiin kuuluvat luokat UI, joka toteuttaa rajapinnan Runnable, KeyBoardListener, joka toteuttaa rajapinnan KeyListener, abstrakti luokka AbstractPanel, joka perii luokan JPanel, ja AbstractPanelin perivät luokat GamePanel ja SidePanel. UI-luokka luo yhden kappaleen AbstractPanelin kumpaakin aliluokkaa, sekä KeyBoardListenerin, joille se antaa viitteen Game-luokkaan, jonka se on itse saanut konstruktorin parametrina.
+
+Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraavana putoavasta. Game toteuttaa rajapinnan ActionListener ja perii luokan Timer, jotka tarjoavat ajastustoiminnallisuuden pelin päivittämiseen. Luokkaan liittyvät GamePanel ja SidePanel piirtävät pelin ja sen tiedot näkyviin, ja KeyBoardListener siirtää näppäimistöltä tulevat käskyt Gamen metodien hoidettaviksi.
 
 #### Luokkakaavio
 
