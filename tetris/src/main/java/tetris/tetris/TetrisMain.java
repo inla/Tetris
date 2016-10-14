@@ -7,7 +7,6 @@ import tetris.ui.UI;
 public class TetrisMain {
 
     public static void main(String[] args) {
-        System.out.println(TetrisMain.class.getClassLoader().getResource("tetris/tetris/TetrisMain.class"));
 //        for (int level = 1; level < 11; level++) {
 //            System.out.print("Level " + level + ":");
 //            for (int removed = 1; removed < 5; removed++) {
