@@ -29,15 +29,14 @@ Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraava
 
 &nbsp;
 
-**Luokkakaavio**
+**Luokkakaavio:**
 &nbsp;
 
 ![luokkakaavio](/dokumentaatio/luokkakaavio.png)
 
 &nbsp;
 
-**Sekvenssikaavioita**
-
+**Sekvenssikaavioita:**
 &nbsp;
 
 ![pelin käynnistys](/dokumentaatio/start.png)
