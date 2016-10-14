@@ -1,4 +1,5 @@
 ### Aihemäärittely
+&nbsp;
 
 
 **Aihe:** Tetris-peli
@@ -10,11 +11,15 @@ Palikoita eli tetrominoja on seitsemän erilaista ja kaikki koostuvat neljästä
 
 **Pelaajan toiminnot:**
  * ohjelman käynnistys
- * pelin käynnistys
+ * uuden pelin aloitus
  * pelin keskeytys
  * pelin lopetus
  * ohjelmasta poistuminen
- * näppäinten painaminen
+ * tetriminon liikuttaminen
+
+&nbsp;
+
+&nbsp;
 
 
 ### Rakennekuvaus
@@ -27,12 +32,22 @@ Käyttöliittymäpakettiin kuuluvat luokat UI, joka toteuttaa rajapinnan Runnabl
 
 Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraavana putoavasta. Game toteuttaa rajapinnan ActionListener ja perii luokan Timer, jotka tarjoavat ajastustoiminnallisuuden pelin päivittämiseen. Luokkaan liittyvät GamePanel ja SidePanel piirtävät pelin ja sen tiedot näkyviin, ja KeyBoardListener siirtää näppäimistöltä tulevat käskyt Gamen metodien hoidettaviksi.
 
-#### Luokkakaavio
+&nbsp;
+
+**Luokkakaavio**
+&nbsp;
 
 ![luokkakaavio](/dokumentaatio/luokkakaavio.png)
 
-#### Sekvenssikaavioita
+&nbsp;
+
+**Sekvenssikaavioita**
+&nbsp;
+
 
 ![pelin käynnistys](/dokumentaatio/start.png)
+&nbsp;
+
 ![pelin keskeytys](/dokumentaatio/pause.png)
+
 ![tetriminon kääntäminen](/dokumentaatio/rotate.png)
