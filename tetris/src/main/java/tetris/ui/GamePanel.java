@@ -3,7 +3,6 @@ package tetris.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import javax.swing.JPanel;
 import tetris.logic.Game;
 
 /**
@@ -11,7 +10,7 @@ import tetris.logic.Game;
  *
  * @author inka
  */
-public class GamePanel extends JPanel {
+public class GamePanel extends AbstractPanel {
 
     private final Game game;
     private final int squareSize;
@@ -23,8 +22,9 @@ public class GamePanel extends JPanel {
      * @param squareSize size of the squares
      */
     public GamePanel(Game game, int squareSize) {
-        this.game = game;
-        this.squareSize = squareSize;
+        super(game, squareSize);
+        this.game = getGame();
+        this.squareSize = getSquareSize();
         super.setBackground(Color.BLACK);
     }
 
@@ -44,7 +44,7 @@ public class GamePanel extends JPanel {
     }
 
     private void paintBackground(Graphics g) {
-        g.setColor(new Color(7, 7, 7));
+        g.setColor(new Color(10, 10, 10));
         for (int i = 0; i < this.game.getBoard().getHeight(); i++) {
             for (int j = 0; j < this.game.getBoard().getWidth(); j++) {
                 if (i % 2 == 0 && j % 2 == 0) {
@@ -67,7 +67,8 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void paintTetrimino(Graphics g) {
+    @Override
+    protected void paintTetrimino(Graphics g) {
         int[][] tetr = this.game.getFallingTetrimino().getCurrentRotation();
         for (int i = 0; i < tetr.length; i++) {
             for (int j = 0; j < tetr[i].length; j++) {
@@ -79,14 +80,6 @@ public class GamePanel extends JPanel {
                 }
             }
         }
-    }
-
-    private void paintPoint(Graphics g, int x, int y, Color c) {
-        if (this.game.isGameOver() || this.game.isPaused()) {
-            c = c.darker().darker();
-        }
-        g.setColor(c);
-        g.fill3DRect(x * squareSize, y * squareSize, squareSize, squareSize, true);
     }
 
     private void paintGameOver(Graphics g) {

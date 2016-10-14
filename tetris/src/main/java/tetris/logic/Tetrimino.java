@@ -98,9 +98,9 @@ public class Tetrimino {
      * the current rotation number, if it doesn't then collide to anything.
      */
     public void rotate() {
-//        if (this.type.getMaxRotation() == 1) {
-//            return;
-//        }
+        if (this.type.getMaxRotation() == 1) {
+            return;
+        }
         if (!collides(null)) {
             if (this.rotationNumber + 1 < this.type.getMaxRotation()) {
                 this.rotationNumber++;

@@ -3,7 +3,8 @@ package tetris.ui;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import tetris.logic.Game;
 
 /**
@@ -13,11 +14,11 @@ import tetris.logic.Game;
  */
 public class UI implements Runnable {
 
+    private static final int SQUARE_SIZE = 24;
     private JFrame frame;
     private final Game game;
-    private GamePanel gamePanel;
-    private SidePanel sidePanel;
-    private final static int SQUARE_SIZE = 24;
+    private AbstractPanel gamePanel;
+    private AbstractPanel sidePanel;
 
     /**
      * Creates the user interface.
@@ -56,11 +57,11 @@ public class UI implements Runnable {
         this.sidePanel.setPreferredSize(new Dimension(width - SQUARE_SIZE, height));
     }
 
-    public GamePanel getGamePanel() {
+    public AbstractPanel getGamePanel() {
         return gamePanel;
     }
 
-    public SidePanel getSidePanel() {
+    public AbstractPanel getSidePanel() {
         return sidePanel;
     }
 

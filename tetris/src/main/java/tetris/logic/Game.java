@@ -4,43 +4,36 @@ import com.sun.javafx.scene.traversal.Direction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import tetris.ui.GamePanel;
-import tetris.ui.SidePanel;
+import tetris.ui.AbstractPanel;
 
 /**
- * Handels the game logic.
+ * Handles the game logic.
  *
  * @author inka
  *
  */
-public class Game implements ActionListener {
+public class Game extends Timer implements ActionListener {
 
-    private Board board;
+    private final Board board;
     private Tetrimino fallingTetrimino;
     private Tetrimino nextTetrimino;
     private boolean gameOver;
     private boolean paused;
-    private Timer timer;
     private int score;
     private int level;
     private int removedRowsTotal;
-    private GamePanel gamePanel;
-    private SidePanel sidePanel;
+    private AbstractPanel gamePanel;
+    private AbstractPanel sidePanel;
 
     /**
      * Creates a new game.
      */
     public Game() {
+        super(1000, null);
         this.board = new Board();
-        this.timer = new Timer(1000, this);
-        initialize();
-    }
+        addActionListener(this);
 
-    /**
-     * Starts the timer and the game.
-     */
-    public void start() {
-        this.timer.start();
+        initialize();
     }
 
     /**
@@ -56,13 +49,14 @@ public class Game implements ActionListener {
         this.score = 0;
         this.level = 1;
         this.removedRowsTotal = 0;
-        this.timer.restart();
+        setDelay(1050 - level * 50);
     }
 
     /**
      * Calls the game and side panels' repaint-method.
      */
     public void repaint() {
+
         this.gamePanel.repaint();
         this.sidePanel.repaint();
     }
@@ -74,7 +68,8 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Updates the game if the game is not over or paused.
+     * Updates the game if it's not over or paused. Moves the falling tetrimino
+     * down by one or, if that's not possible, calls the respawn-method.
      */
     public void update() {
         if (!isGameOver() && !isPaused()) {
@@ -102,13 +97,13 @@ public class Game implements ActionListener {
             this.score += 100 * (removedRows * removedRows + (level - 1));
             this.removedRowsTotal += removedRows;
         }
-        this.level = this.removedRowsTotal / 10 + 1;       // keksi parempi kaava?
-        this.timer.setDelay(Math.max(1050 - level * 50, 10));
+        this.level = this.removedRowsTotal / 2 + 1;       // keksi parempi kaava?
+        setDelay(Math.max(1050 - level * 150, 10));
     }
 
     private void gameOver() {
         this.gameOver = true;
-        this.timer.stop();
+        stop();
     }
 
     private boolean canContinue() {
@@ -165,29 +160,29 @@ public class Game implements ActionListener {
     }
 
     /**
-     * Sets the game paused or unpaused.
+     * Sets the game paused and stops timer or unpaused and starts timer.
      */
     public void pauseGame() {
         if (!isGameOver()) {
             if (isPaused()) {
                 this.paused = false;
-                timer.start();
+                start();
             } else {
                 this.paused = true;
-                timer.stop();
+                stop();
             }
         }
     }
 
-    public void setGamePanel(GamePanel gamePanel) {
+    public void setGamePanel(AbstractPanel gamePanel) {
         this.gamePanel = gamePanel;
     }
 
-    public void setSidePanel(SidePanel sidePanel) {
+    public void setSidePanel(AbstractPanel sidePanel) {
         this.sidePanel = sidePanel;
     }
 
     public Timer getTimer() {
-        return timer;
+        return this;
     }
 }

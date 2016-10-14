@@ -46,7 +46,7 @@ public class Board {
 
     /**
      * Adds a tetrimino into the board. Sets the coordinate values where the
-     * tetrimino is to the tetrimino's type (which is the coloCode).
+     * tetrimino is to the tetrimino's type (which is the colorCode).
      *
      * @param tetrimino the tetrimino to be added
      */
@@ -105,9 +105,9 @@ public class Board {
      * @return true if the row is full, false otherwise
      */
     public boolean isRowFull(int y) {
-//        if (y < 0 || y >= HEIGHT) {   //laudan ulkopuolella true/false?
-//            return true;
-//        }
+        if (y < 0 || y >= HEIGHT) {
+            return false;
+        }
         for (int x = 0; x < WIDTH; x++) {
             if (this.board[y][x] == 0) {
                 return false;
@@ -141,7 +141,7 @@ public class Board {
      *
      * @param x x coordinate
      * @param y y coordinate
-     * @param type type to be setted (=colorcode)
+     * @param type type to be set (=colorcode)
      */
     public void setPoint(int x, int y, int type) {
         this.board[y][x] = type;
@@ -152,7 +152,7 @@ public class Board {
      *
      * @param x point's x coordinate
      * @param y point's y coordinate
-     * @return the type(=colocode)
+     * @return the type(=colorcode)
      */
     public int getPoint(int x, int y) {
         if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {

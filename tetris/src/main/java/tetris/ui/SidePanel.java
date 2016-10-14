@@ -3,7 +3,6 @@ package tetris.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import javax.swing.JPanel;
 import tetris.logic.Game;
 
 /**
@@ -11,20 +10,21 @@ import tetris.logic.Game;
  *
  * @author inka
  */
-public class SidePanel extends JPanel {
+public class SidePanel extends AbstractPanel {
 
     private final int squareSize;
     private final Game game;
 
     /**
-     * Creates the side panel.
+     * Constructor for the side panel. Sets also it's background color.
      *
      * @param game current game
      * @param squareSize size of the squares
      */
     public SidePanel(Game game, int squareSize) {
-        this.game = game;
-        this.squareSize = squareSize;
+        super(game, squareSize);
+        this.game = getGame();
+        this.squareSize = getSquareSize();
         super.setBackground(Color.BLACK);
     }
 
@@ -47,7 +47,8 @@ public class SidePanel extends JPanel {
         paintTetrimino(g);
     }
 
-    private void paintTetrimino(Graphics g) {
+    @Override
+    protected void paintTetrimino(Graphics g) {
         int[][] tetr = this.game.getNextTetrimino().getCurrentRotation();
         for (int i = 0; i < tetr.length; i++) {
             for (int j = 0; j < tetr[i].length; j++) {
@@ -59,14 +60,6 @@ public class SidePanel extends JPanel {
                 }
             }
         }
-    }
-
-    private void paintPoint(Graphics g, int x, int y, Color c) {
-        if (this.game.isPaused()) {
-            c = c.darker().darker();
-        }
-        g.setColor(c);
-        g.fill3DRect(x * squareSize, y * squareSize, squareSize, squareSize, true);
     }
 
     private void paintInfo(Graphics g) {

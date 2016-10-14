@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import tetris.logic.Game;
 
 /**
- * Handels the presses of the keyboard made by the player.
+ * Handles the presses of the keyboard made by the player.
  *
  * @author inka
  */
@@ -38,7 +38,7 @@ public class KeyboardListener implements KeyListener {
             this.game.pauseGame();
         } else if (e.getKeyCode() == KeyEvent.VK_F1) {
             this.game.initialize();
-            this.game.start();
+            this.game.restart();
         }
         this.game.repaint();
     }
