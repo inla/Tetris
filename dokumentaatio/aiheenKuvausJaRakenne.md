@@ -39,8 +39,8 @@ Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraava
 **Sekvenssikaavioita:**
 &nbsp;
 
-![pelin käynnistys](/dokumentaatio/start.png "loopista puuttuu")
-
+![pelin käynnistys](/dokumentaatio/start.png)
+(loopista ja sen jälkeen puuttuu getSidePanel ja setSidePanel)
 &nbsp;
 
 ![pelin keskeytys](/dokumentaatio/pause.png)
