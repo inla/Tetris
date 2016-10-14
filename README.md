@@ -1,6 +1,6 @@
 #Tetris
 Peli, jossa yritetään saada erimuotoiset putoavat palikat muodostamaan täysi rivi, jolloin rivi häviää.
-
+[käyttöohjeet](dokumentaatio/käyttöohjeet.md)
 
 ###Dokumentaatio
 * [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
