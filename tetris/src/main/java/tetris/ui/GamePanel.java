@@ -84,7 +84,7 @@ public class GamePanel extends AbstractPanel {
 
     private void paintGameOver(Graphics g) {
         int x = squareSize;
-        int y = (this.game.getBoard().getHeight() * squareSize) / 2 - squareSize;
+        int y = getHeight() / 2 - squareSize;
         g.setColor(Color.WHITE);
         g.setFont(new Font("Tahoma", Font.BOLD, 60));
         g.drawString("GAME", x, y);

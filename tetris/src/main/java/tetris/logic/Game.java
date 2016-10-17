@@ -97,8 +97,8 @@ public class Game extends Timer implements ActionListener {
             this.score += 100 * (removedRows * removedRows + (level - 1));
             this.removedRowsTotal += removedRows;
         }
-        this.level = this.removedRowsTotal / 2 + 1;       // keksi parempi kaava?
-        setDelay(Math.max(1050 - level * 150, 10));
+        this.level = this.removedRowsTotal / 10 + 1;
+        setDelay(Math.max(1050 - level * 50, 10));
     }
 
     private void gameOver() {

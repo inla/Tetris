@@ -33,6 +33,7 @@ public class SidePanel extends AbstractPanel {
         super.paintComponent(g);
 
         g.setColor(Color.LIGHT_GRAY);
+        g.drawLine(0, 0, 0, getHeight());
         g.setFont(new Font("Tahoma", Font.BOLD, 12));
         if (!this.game.isGameOver()) {
             paintPreview(g);
@@ -43,7 +44,7 @@ public class SidePanel extends AbstractPanel {
     }
 
     private void paintPreview(Graphics g) {
-        g.drawString("Next: ", squareSize, 2 * squareSize);
+        g.drawString("Next:", squareSize, 2 * squareSize);
         paintTetrimino(g);
     }
 
