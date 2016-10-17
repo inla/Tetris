@@ -15,4 +15,4 @@ Päivä | Tunnit | Kuvaus
 07.10.2016 | 5h | Ongelmat jatkuu.. Lisää testejä + javadoc, luokkakaavion päivitys, sekvenssikaaviot
 10.10.2016 | 7h | Paneelien kanssa säätämistä; sivupaneelin kunnostus, game over ja paused piirtäminen ja putoava tetrimino piirtyy vihdoin oikein! Lisäksi kaikkien luokkien tarkistelua ja siistimistä, javadocit kuntoon, testien tarkastus
 14.10.2016 | 5h | AbstractPanelin luonti, Timerin periminen Game-luokassa ja sen nopeutumisen säätäminen, luokkakaavion päivitys, rakennekuvaus ja käyttöohjeet, ongelmia jar-tiedoston kanssa
-17.10.2016 | 3h | Paneelien väliin viiva selkeyttämään jakoa, yritystä saada palikat ilmestymään ruuturivi kerrallaan yläreunasta ->ei onnistunut..? Pelin nopeutuminen ja level uppaaminen kuntoon, loppupalautuksen muistilistan läpikäymistä
+17.10.2016 | 3h | Paneelien väliin viiva selkeyttämään jakoa, yritystä saada palikat ilmestymään rivi kerrallaan yläreunasta ->ei onnistunut..? Pelin nopeutuminen ja level uppaaminen kuntoon, loppupalautuksen muistilistan läpikäymistä
