@@ -56,7 +56,6 @@ public class Game extends Timer implements ActionListener {
      * Calls the game and side panels' repaint-method.
      */
     public void repaint() {
-
         this.gamePanel.repaint();
         this.sidePanel.repaint();
     }
