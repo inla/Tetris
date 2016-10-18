@@ -43,7 +43,7 @@ Game koostuu pelilaudasta Board ja kahdesta Tetriminosta, putoavasta ja seuraava
 
 &nbsp;
 
-![pelin keskeytys](/dokumentaatio/pause\\continue.png)
+![pelin keskeytys](/dokumentaatio/pause-continue.png)
 
 &nbsp;
 
