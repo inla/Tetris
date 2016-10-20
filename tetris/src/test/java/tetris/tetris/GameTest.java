@@ -1,4 +1,4 @@
-package tetris.logic;
+package tetris.tetris;
 
 import tetris.tetris.Game;
 import com.sun.javafx.scene.traversal.Direction;
@@ -9,6 +9,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+import tetris.logic.Tetrimino;
 
 /**
  *
