@@ -1,5 +1,6 @@
 package tetris.logic;
 
+import tetris.tetris.Game;
 import com.sun.javafx.scene.traversal.Direction;
 import org.junit.After;
 import static org.junit.Assert.assertArrayEquals;
@@ -57,7 +58,7 @@ public class GameTest {
     @Test
     public void testTetriminoLiikkuuOikeinAlas() {
         g.moveTetrimino(Direction.DOWN);
-        assertEquals(1, g.getFallingTetrimino().getY());
+        assertEquals(-1, g.getFallingTetrimino().getY());
 
     }
 

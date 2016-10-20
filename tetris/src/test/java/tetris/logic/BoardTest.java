@@ -190,6 +190,7 @@ public class BoardTest {
     @Test
     public void testAddTetriminoToimii() {
         Tetrimino t = new Tetrimino(b);
+        t.dropDown();
         Color c = t.getColor();
         b.addTetrimino(t);
         for (int i = 0; i < t.getCurrentRotation().length; i++) {

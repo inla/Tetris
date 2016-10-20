@@ -3,7 +3,7 @@ package tetris.ui;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import tetris.logic.Game;
+import tetris.tetris.Game;
 
 /**
  * This abstract class contains methods that both of it's subclasses, GamePanel

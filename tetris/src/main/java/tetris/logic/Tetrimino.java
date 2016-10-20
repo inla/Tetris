@@ -43,7 +43,7 @@ public class Tetrimino {
         this.rotationNumber = 0;
         this.color = this.type.getColor();
         this.x = board.getWidth() / 2 - 1;
-        this.y = 0;
+        this.y = -2;
 
     }
 
@@ -136,7 +136,7 @@ public class Tetrimino {
                     continue;
                 }
                 int testX = j + dx;
-                int testY = i + dy;
+                int testY = Math.max(i + dy, 0);
                 if ((!isInsideBorders(testX, testY) || board.getBoard()[testY][testX] != 0)) {
                     return true;
                 }

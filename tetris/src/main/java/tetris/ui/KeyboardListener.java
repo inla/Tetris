@@ -3,7 +3,7 @@ package tetris.ui;
 import com.sun.javafx.scene.traversal.Direction;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import tetris.logic.Game;
+import tetris.tetris.Game;
 
 /**
  * Handles the presses of the keyboard made by the player.
@@ -24,21 +24,31 @@ public class KeyboardListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            this.game.moveTetrimino(Direction.UP);
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            this.game.moveTetrimino(Direction.RIGHT);
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            this.game.moveTetrimino(Direction.DOWN);
-        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            this.game.moveTetrimino(Direction.LEFT);
-        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.game.moveTetrimino(null);
-        } else if (e.getKeyCode() == KeyEvent.VK_P) {
-            this.game.pauseGame();
-        } else if (e.getKeyCode() == KeyEvent.VK_F1) {
-            this.game.initialize();
-            this.game.restart();
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                this.game.moveTetrimino(Direction.UP);
+                break;
+            case KeyEvent.VK_RIGHT:
+                this.game.moveTetrimino(Direction.RIGHT);
+                break;
+            case KeyEvent.VK_DOWN:
+                this.game.moveTetrimino(Direction.DOWN);
+                break;
+            case KeyEvent.VK_LEFT:
+                this.game.moveTetrimino(Direction.LEFT);
+                break;
+            case KeyEvent.VK_SPACE:
+                this.game.moveTetrimino(null);
+                break;
+            case KeyEvent.VK_P:
+                this.game.pauseGame();
+                break;
+            case KeyEvent.VK_F1:
+                this.game.initialize();
+                this.game.restart();
+                break;
+            default:
+                break;
         }
         this.game.repaint();
     }

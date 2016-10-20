@@ -3,7 +3,7 @@ package tetris.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import tetris.logic.Game;
+import tetris.tetris.Game;
 
 /**
  * Draws the current situation of the game.
@@ -44,7 +44,7 @@ public class GamePanel extends AbstractPanel {
     }
 
     private void paintBackground(Graphics g) {
-        g.setColor(new Color(10, 10, 10));
+        g.setColor(new Color(15, 15, 15));
         for (int i = 0; i < this.game.getBoard().getHeight(); i++) {
             for (int j = 0; j < this.game.getBoard().getWidth(); j++) {
                 if (i % 2 == 0 && j % 2 == 0) {

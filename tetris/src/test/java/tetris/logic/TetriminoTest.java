@@ -95,6 +95,9 @@ public class TetriminoTest {
     @Test
     public void testTetriminoLiikkuuOikeinAlas() {
         tetr.moveDown();
+        assertEquals(-1, tetr.getY());
+        tetr.moveDown();
+        tetr.moveDown();
         assertEquals(1, tetr.getY());
 
     }

@@ -5,7 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import tetris.logic.Game;
+import tetris.tetris.Game;
 
 /**
  * The user interface of tetris.

@@ -144,7 +144,9 @@ public class Board {
      * @param type type to be set (=colorcode)
      */
     public void setPoint(int x, int y, int type) {
-        this.board[y][x] = type;
+        if (x >= 0 && x < WIDTH & y >= 0 & y < HEIGHT) {
+            this.board[y][x] = type;
+        }
     }
 
     /**

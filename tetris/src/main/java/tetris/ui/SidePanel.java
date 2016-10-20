@@ -3,7 +3,7 @@ package tetris.ui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import tetris.logic.Game;
+import tetris.tetris.Game;
 
 /**
  * Panel that shows information of the game.
@@ -55,7 +55,7 @@ public class SidePanel extends AbstractPanel {
             for (int j = 0; j < tetr[i].length; j++) {
                 if (tetr[i][j] != 0) {
                     int x = this.game.getNextTetrimino().getX() + j;
-                    int y = this.game.getNextTetrimino().getY() + i + 1;
+                    int y = this.game.getNextTetrimino().getY() + i + 3;
                     Color c = this.game.getNextTetrimino().getColor();
                     paintPoint(g, x, y, c);
                 }

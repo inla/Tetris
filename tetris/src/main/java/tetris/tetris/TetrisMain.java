@@ -1,7 +1,6 @@
 package tetris.tetris;
 
 import javax.swing.SwingUtilities;
-import tetris.logic.Game;
 import tetris.ui.UI;
 
 public class TetrisMain {

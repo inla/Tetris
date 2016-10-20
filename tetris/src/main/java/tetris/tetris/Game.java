@@ -1,9 +1,11 @@
-package tetris.logic;
+package tetris.tetris;
 
 import com.sun.javafx.scene.traversal.Direction;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import tetris.logic.Board;
+import tetris.logic.Tetrimino;
 import tetris.ui.AbstractPanel;
 
 /**
