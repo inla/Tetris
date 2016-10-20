@@ -26,6 +26,7 @@
         <module name="NestedTryDepth"/>
 
         <!-- Miscellaneous -->
+        
         <module name='Indentation' />
         <module name="OneStatementPerLine"/>
 
