@@ -1,6 +1,5 @@
 package tetris.tetris;
 
-import tetris.tetris.Game;
 import com.sun.javafx.scene.traversal.Direction;
 import org.junit.After;
 import static org.junit.Assert.assertArrayEquals;
@@ -11,10 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import tetris.logic.Tetrimino;
 
-/**
- *
- * @author inka
- */
 public class GameTest {
 
     private Game g;
@@ -119,7 +114,7 @@ public class GameTest {
         g.pauseGame();
         assertFalse(g.isPaused());
     }
-    
+
     @Test
     public void testTimerKaynnistyyOikein() {
         g.start();
@@ -135,21 +130,21 @@ public class GameTest {
         assertTrue(g.isGameOver());
         assertFalse(g.getTimer().isRunning());
     }
-    
+
     @Test
     public void testInitializeAsettaaDelayOnTuhat() {
         g.setDelay(20);
         g.initialize();
         assertEquals(1000, g.getTimer().getDelay());
     }
-    
+
     @Test
     public void testInitializeTyhjentaaLaudan() {
         g.getBoard().setPoint(1, 1, 1);
         g.initialize();
         assertEquals(0, g.getBoard().getPoint(1, 1));
     }
-    
+
     @Test
     public void testTapahtumanKuuntelijaLoytyy() {
         assertTrue(g.getTimer().getActionListeners() != null);
