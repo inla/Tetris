@@ -11,7 +11,7 @@
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.awt.Font;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> tetris.logic.Game;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> tetris.tetris.Game;
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   
 <a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * Panel that shows information of the game.</em>
@@ -21,7 +21,7 @@
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../tetris/ui/SidePanel.html">SidePanel</a> <strong class="jxr_keyword">extends</strong> <a href="../../tetris/ui/AbstractPanel.html">AbstractPanel</a> {
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> squareSize;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../tetris/logic/Game.html">Game</a> game;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../tetris/tetris/Game.html">Game</a> game;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     * Constructor for the side panel. Sets also it's background color.</em>
@@ -29,7 +29,7 @@
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * @param game current game</em>
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * @param squareSize size of the squares</em>
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">public</strong> <a href="../../tetris/ui/SidePanel.html">SidePanel</a>(<a href="../../tetris/logic/Game.html">Game</a> game, <strong class="jxr_keyword">int</strong> squareSize) {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">public</strong> <a href="../../tetris/ui/SidePanel.html">SidePanel</a>(<a href="../../tetris/tetris/Game.html">Game</a> game, <strong class="jxr_keyword">int</strong> squareSize) {
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>          <strong class="jxr_keyword">super</strong>(game, squareSize);
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">this</strong>.game = getGame();
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">this</strong>.squareSize = getSquareSize();
@@ -41,57 +41,58 @@
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">super</strong>.paintComponent(g);
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>          g.setColor(Color.LIGHT_GRAY);
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>          g.setFont(<strong class="jxr_keyword">new</strong> Font(<span class="jxr_string">"Tahoma"</span>, Font.BOLD, 12));
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.game.isGameOver()) {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>              paintPreview(g);
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>          }
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          g.setColor(Color.LIGHT_GRAY);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>          paintInfo(g);
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paintPreview(Graphics g) {
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>          g.drawString(<span class="jxr_string">"Next: "</span>, squareSize, 2 * squareSize);
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>          paintTetrimino(g);
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>      }
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>      @Override
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> paintTetrimino(Graphics g) {
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">int</strong>[][] tetr = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getCurrentRotation();
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; tetr.length; i++) {
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; tetr[i].length; j++) {
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>                  <strong class="jxr_keyword">if</strong> (tetr[i][j] != 0) {
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>                      <strong class="jxr_keyword">int</strong> x = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getX() + j;
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>                      <strong class="jxr_keyword">int</strong> y = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getY() + i + 1;
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>                      Color c = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getColor();
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>                      paintPoint(g, x, y, c);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>                  }
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>              }
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          }
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>      }
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paintInfo(Graphics g) {
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          g.drawString(<span class="jxr_string">"Score: "</span> + <strong class="jxr_keyword">this</strong>.game.getScore(), squareSize, 6 * squareSize);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          g.drawString(<span class="jxr_string">"Level: "</span> + <strong class="jxr_keyword">this</strong>.game.getLevel(), squareSize, 8 * squareSize);
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          g.drawString(<span class="jxr_string">"Controls:"</span>, squareSize, 11 * squareSize);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          g.setFont(<strong class="jxr_keyword">new</strong> Font(<span class="jxr_string">"Tahoma"</span>, Font.PLAIN, 12));
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          g.drawString(<span class="jxr_string">"F1            new game"</span>, squareSize, 12 * squareSize);
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          g.drawString(<span class="jxr_string">"P              pause/continue"</span>, squareSize, 13 * squareSize);
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          g.drawString(<span class="jxr_string">"↓              down"</span>, squareSize, 14 * squareSize);
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          g.drawString(<span class="jxr_string">"→              right"</span>, squareSize, 15 * squareSize);
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>          g.drawString(<span class="jxr_string">"←              left"</span>, squareSize, 16 * squareSize);
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          g.drawString(<span class="jxr_string">"↑              rotate"</span>, squareSize, 17 * squareSize);
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          g.drawString(<span class="jxr_string">"spacebar  drop"</span>, squareSize, 18 * squareSize);
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>      }
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>      @Override
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> repaint() {
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <strong class="jxr_keyword">super</strong>.repaint();
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>      }
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          g.drawLine(0, 0, 0, getHeight());
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          g.setFont(<strong class="jxr_keyword">new</strong> Font(<span class="jxr_string">"Tahoma"</span>, Font.BOLD, 12));
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.game.isGameOver()) {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              paintPreview(g);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          }
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          g.setColor(Color.LIGHT_GRAY);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          paintInfo(g);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paintPreview(Graphics g) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          g.drawString(<span class="jxr_string">"Next:"</span>, squareSize, 2 * squareSize);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          paintTetrimino(g);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      @Override
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> paintTetrimino(Graphics g) {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">int</strong>[][] tetr = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getCurrentRotation();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; tetr.length; i++) {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; tetr[i].length; j++) {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                  <strong class="jxr_keyword">if</strong> (tetr[i][j] != 0) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>                      <strong class="jxr_keyword">int</strong> x = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getX() + j;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                      <strong class="jxr_keyword">int</strong> y = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getY() + i + 3;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                      Color c = <strong class="jxr_keyword">this</strong>.game.getNextTetrimino().getColor();
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      paintPoint(g, x, y, c);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  }
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>              }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          }
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paintInfo(Graphics g) {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          g.drawString(<span class="jxr_string">"Score: "</span> + <strong class="jxr_keyword">this</strong>.game.getScore(), squareSize, 6 * squareSize);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          g.drawString(<span class="jxr_string">"Level: "</span> + <strong class="jxr_keyword">this</strong>.game.getLevel(), squareSize, 8 * squareSize);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          g.drawString(<span class="jxr_string">"Controls:"</span>, squareSize, 11 * squareSize);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          g.setFont(<strong class="jxr_keyword">new</strong> Font(<span class="jxr_string">"Tahoma"</span>, Font.PLAIN, 12));
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          g.drawString(<span class="jxr_string">"F1            new game"</span>, squareSize, 12 * squareSize);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          g.drawString(<span class="jxr_string">"P              pause/continue"</span>, squareSize, 13 * squareSize);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          g.drawString(<span class="jxr_string">"↓              down"</span>, squareSize, 14 * squareSize);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          g.drawString(<span class="jxr_string">"→              right"</span>, squareSize, 15 * squareSize);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          g.drawString(<span class="jxr_string">"←              left"</span>, squareSize, 16 * squareSize);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          g.drawString(<span class="jxr_string">"↑              rotate"</span>, squareSize, 17 * squareSize);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          g.drawString(<span class="jxr_string">"spacebar  drop"</span>, squareSize, 18 * squareSize);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      }
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      @Override
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> repaint() {
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <strong class="jxr_keyword">super</strong>.repaint();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

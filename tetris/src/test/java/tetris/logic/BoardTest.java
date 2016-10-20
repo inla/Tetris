@@ -100,6 +100,12 @@ public class BoardTest {
         b.getBoard()[0][1] = 0;
         assertFalse(b.isRowFull(0));
     }
+    
+    @Test
+    public void testOnkoRiviTaysiPalauttaaFalseLaudanUlkopuolelta() {
+        assertFalse(b.isRowFull(22));
+        assertFalse(b.isRowFull(-1));
+    }
 
     @Test
     public void testGetPointPalauttaaNollaLaudanUlkoOikealta() {

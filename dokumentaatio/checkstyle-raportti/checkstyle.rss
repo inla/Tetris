@@ -60,20 +60,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tetris.logic.Game.java">tetris/logic/Game.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#tetris.logic.Tetrimino.java">tetris/logic/Tetrimino.java</a>
                 </td>
                 <td>
@@ -159,6 +145,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tetris.ui.KeyboardListener.java">tetris/ui/KeyboardListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tetris.tetris.Game.java">tetris/tetris/Game.java</a>
                 </td>
                 <td>
                   0
