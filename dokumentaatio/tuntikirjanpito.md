@@ -17,3 +17,4 @@ Päivä | Tunnit | Kuvaus
 14.10.2016 | 5h | AbstractPanelin luonti, Timerin periminen Game-luokassa ja sen nopeutumisen säätäminen, luokkakaavion päivitys, rakennekuvaus ja käyttöohjeet, ongelmia jar-tiedoston kanssa
 17.10.2016 | 3h | Paneelien väliin viiva selkeyttämään jakoa, yritystä saada palikat ilmestymään rivi kerrallaan yläreunasta ->ei onnistunut..? Pelin nopeutuminen ja level uppaaminen kuntoon, loppupalautuksen muistilistan läpikäymistä
 20.10.2016 | 2h | Laitoksen koneella pelin toimivuuden tarkistus, game luokka pois logiikkapaketista, ja vihdoin palikat putoaa yläpalkin alta
+21.10.2016 | 1h | Vikoja tarkisteluita
