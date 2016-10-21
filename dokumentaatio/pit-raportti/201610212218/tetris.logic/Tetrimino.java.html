@@ -804,7 +804,7 @@ body{
 <span>
 </span>
 </td>
-<td class=''><pre><span  class=''>     * @param direction the direction to be checked</span></pre></td></tr>
+<td class=''><pre><span  class=''>     * @param direction the direction to check</span></pre></td></tr>
 
 
 <tr>
@@ -1501,7 +1501,7 @@ body{
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7134b8a7_102'/>
 102
 </td>
@@ -1511,7 +1511,7 @@ body{
 <span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>            return;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            return;</span></pre></td></tr>
 
 
 <tr>
@@ -1997,15 +1997,15 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@7134b8a7_135'/>
 135
 </td>
-<td class='uncertain'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_135'>1</a>
 <span>
-1. collides : negated conditional &rarr; TIMED_OUT<br/>
+1. collides : negated conditional &rarr; KILLED<br/>
 
 </span>
 </td>
-<td class='covered'><pre><span  class='uncertain'>                if (tetr[i][j] == 0) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (tetr[i][j] == 0) {</span></pre></td></tr>
 
 
 <tr>
@@ -2557,19 +2557,19 @@ body{
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7134b8a7_173'/>
 173
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_173'>1</a>
 <span>
-1. getNextRotation : mutated return of Object value for tetris/logic/Tetrimino::getNextRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+1. getNextRotation : mutated return of Object value for tetris/logic/Tetrimino::getNextRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
 
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return this.tetriminoRotations.get(0);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return this.tetriminoRotations.get(0);</span></pre></td></tr>
 
 
 <tr>
@@ -2735,15 +2735,15 @@ body{
 <a name='org.pitest.mutationtest.report.html.SourceFile@7134b8a7_185'/>
 185
 </td>
-<td class='killed'>
+<td class='uncertain'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_185'>1</a>
 <span>
-1. getY : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+1. getY : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; TIMED_OUT<br/>
 
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return y;</span></pre></td></tr>
+<td class='covered'><pre><span  class='uncertain'>        return y;</span></pre></td></tr>
 
 
 <tr>
@@ -2958,7 +2958,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_45'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinOikealle(tetris.logic.TetriminoTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -2968,7 +2968,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_57'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>canMove<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>canMove<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>canMove<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>canMove<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3168,7 +3168,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_133'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</p> 
 </td>
 </tr>
 <tr>
@@ -3178,7 +3178,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_134'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</p> 
 </td>
 </tr>
 <tr>
@@ -3188,7 +3188,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_135'/> 
 
-<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoPutoaaOikein(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3198,7 +3198,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_138'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3218,7 +3218,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_140'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3238,7 +3238,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_145'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collides<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3258,7 +3258,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_160'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCurrentRotation<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> mutated return of Object value for tetris/logic/Tetrimino::getCurrentRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCurrentRotation<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> mutated return of Object value for tetris/logic/Tetrimino::getCurrentRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3288,7 +3288,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_173'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextRotation<br/><b>Killed by : </b>none</span></span> mutated return of Object value for tetris/logic/Tetrimino::getNextRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextRotation<br/><b>Killed by : </b>tetris.tetris.GameTest.testTetriminoPyoriiOikein(tetris.tetris.GameTest)</span></span> mutated return of Object value for tetris/logic/Tetrimino::getNextRotation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3308,7 +3308,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_181'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getX<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinOikealle(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getX<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3318,7 +3318,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_185'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getY<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getY<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; TIMED_OUT</p> 
 </td>
 </tr>
 <tr>
@@ -3328,7 +3328,7 @@ body{
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7134b8a7_189'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTetriminoRotations<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotO(tetris.logic.TetriminoTest)</span></span> mutated return of Object value for tetris/logic/Tetrimino::getTetriminoRotations to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTetriminoRotations<br/><b>Killed by : </b>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotI(tetris.logic.TetriminoTest)</span></span> mutated return of Object value for tetris/logic/Tetrimino::getTetriminoRotations to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -3369,7 +3369,7 @@ body{
 
 <h2>Tests examined</h2>
 <ul>
-<li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaFalseKunPisteEiRajojenSisalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testTetriminoPyoriiOikein(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotZ(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testInitializeTyhjentaaLaudan(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotI(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testPauseGameToimiiKunPausetetaanPoisJaPeliEiLoppu(tetris.tetris.GameTest) (4 ms)</li><li>tetris.tetris.GameTest.testRespawnAsettaaSeuraavanTetriminonNykyiseksi(tetris.tetris.GameTest) (3 ms)</li><li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaTrueKunPisteOnRajojenSisalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoPutoaaOikein(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinOikealle(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinOikealle(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaTrueKunPisteOnRajalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testUpdateLiikuttaaTetriminoaYhdenAlasJosMahdollista(tetris.tetris.GameTest) (4 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoPyoriiOikein(tetris.logic.TetriminoTest) (4 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotJ(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testInitializeAsettaaDelayOnTuhat(tetris.tetris.GameTest) (2 ms)</li><li>tetris.tetris.GameTest.testUpdateEiTeeMitaanJosPause(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotS(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinAlas(tetris.tetris.GameTest) (2 ms)</li><li>tetris.tetris.GameTest.testTapahtumanKuuntelijaLoytyy(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.BoardTest.testAddTetriminoToimii(tetris.logic.BoardTest) (172 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testKonstruktoriAlustuksetToimii(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotO(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotT(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testPauseGameToimiiKunPausetetaanJaPeliEiLoppu(tetris.tetris.GameTest) (2 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotL(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testTimerKaynnistyyOikein(tetris.tetris.GameTest) (1 ms)</li><li>tetris.tetris.GameTest.testPauseGameEiTeeMitaanJosPeliLoppu(tetris.tetris.GameTest) (4 ms)</li><li>tetris.tetris.GameTest.testGameOverStoppaaTimerin(tetris.tetris.GameTest) (23 ms)</li>
+<li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaFalseKunPisteEiRajojenSisalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testTetriminoPyoriiOikein(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotZ(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testInitializeTyhjentaaLaudan(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotI(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testPauseGameToimiiKunPausetetaanPoisJaPeliEiLoppu(tetris.tetris.GameTest) (4 ms)</li><li>tetris.tetris.GameTest.testRespawnAsettaaSeuraavanTetriminonNykyiseksi(tetris.tetris.GameTest) (3 ms)</li><li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaTrueKunPisteOnRajojenSisalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoPutoaaOikein(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinOikealle(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinOikealle(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinAlas(tetris.logic.TetriminoTest) (3 ms)</li><li>tetris.logic.TetriminoTest.testIsInsideBordersPalauttaaTrueKunPisteOnRajalla(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testUpdateLiikuttaaTetriminoaYhdenAlasJosMahdollista(tetris.tetris.GameTest) (5 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoPyoriiOikein(tetris.logic.TetriminoTest) (13 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotJ(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testInitializeAsettaaDelayOnTuhat(tetris.tetris.GameTest) (2 ms)</li><li>tetris.tetris.GameTest.testUpdateEiTeeMitaanJosPause(tetris.tetris.GameTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotS(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinAlas(tetris.tetris.GameTest) (1 ms)</li><li>tetris.tetris.GameTest.testTapahtumanKuuntelijaLoytyy(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.BoardTest.testAddTetriminoToimii(tetris.logic.BoardTest) (173 ms)</li><li>tetris.logic.TetriminoTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testKonstruktoriAlustuksetToimii(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotO(tetris.logic.TetriminoTest) (2 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotT(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testPauseGameToimiiKunPausetetaanJaPeliEiLoppu(tetris.tetris.GameTest) (1 ms)</li><li>tetris.tetris.GameTest.testTetriminoLiikkuuOikeinVasemmalle(tetris.tetris.GameTest) (1 ms)</li><li>tetris.logic.TetriminoTest.testKonstruktoriAsettaaOikeatRotaatiotL(tetris.logic.TetriminoTest) (1 ms)</li><li>tetris.tetris.GameTest.testTimerKaynnistyyOikein(tetris.tetris.GameTest) (2 ms)</li><li>tetris.tetris.GameTest.testPauseGameEiTeeMitaanJosPeliLoppu(tetris.tetris.GameTest) (3 ms)</li><li>tetris.tetris.GameTest.testGameOverStoppaaTimerin(tetris.tetris.GameTest) (18 ms)</li>
 </ul>
 
 <br/>
