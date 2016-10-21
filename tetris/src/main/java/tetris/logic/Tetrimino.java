@@ -50,7 +50,7 @@ public class Tetrimino {
     /**
      * Tells if a tetrimino can move to a certain direction.
      *
-     * @param direction the direction to be checked
+     * @param direction the direction to check
      * @return true if the tetrimino can move, false otherwise
      */
     public boolean canMove(Direction direction) {

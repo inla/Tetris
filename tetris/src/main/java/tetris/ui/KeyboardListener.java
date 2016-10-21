@@ -6,7 +6,8 @@ import java.awt.event.KeyListener;
 import tetris.tetris.Game;
 
 /**
- * Handles the presses of the keyboard made by the player.
+ * Handles the presses of the keyboard made by the player. Directs them to the
+ * right methods of game class.
  *
  * @author inka
  */

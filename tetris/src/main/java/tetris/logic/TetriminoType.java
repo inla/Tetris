@@ -60,7 +60,7 @@ public enum TetriminoType {
                 break;
 
             case 3:     //L
-                this.color = new Color(255, 137, 0);    //orange
+                this.color = new Color(255, 137, 0);   //orange
                 this.maxRotation = 4;
                 this.rotations = new ArrayList();
                 this.rotations.add(new int[][]{ {0, 0, 3},

@@ -9,7 +9,8 @@ import tetris.logic.Tetrimino;
 import tetris.ui.AbstractPanel;
 
 /**
- * Handles the game logic.
+ * Handles the game logic and updates the game with the help of Timer class and
+ * ActionListener interface.
  *
  * @author inka
  *
@@ -98,7 +99,7 @@ public class Game extends Timer implements ActionListener {
             this.score += 100 * (removedRows * removedRows + (level - 1));
             this.removedRowsTotal += removedRows;
         }
-        this.level = this.removedRowsTotal / 10 + 1;
+        this.level = this.removedRowsTotal / 5 + 1;
         setDelay(Math.max(1050 - level * 50, 10));
     }
 

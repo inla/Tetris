@@ -23,7 +23,7 @@ public class UI implements Runnable {
     /**
      * Creates the user interface.
      *
-     * @param game the logic that needs user interface
+     * @param game the object that needs user interface
      */
     public UI(Game game) {
         this.game = game;

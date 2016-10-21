@@ -41,7 +41,7 @@ public abstract class AbstractPanel extends JPanel {
      * @param g object that contains methods for drawing
      * @param x coordinate x
      * @param y coordinate y
-     * @param c color which should be used
+     * @param c color to be used
      */
     protected void paintPoint(Graphics g, int x, int y, Color c) {
         if (this.game.isPaused() || this.game.isGameOver()) {

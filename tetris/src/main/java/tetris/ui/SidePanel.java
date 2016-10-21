@@ -16,7 +16,7 @@ public class SidePanel extends AbstractPanel {
     private final Game game;
 
     /**
-     * Constructor for the side panel. Sets also it's background color.
+     * Constructor for the side panel.
      *
      * @param game current game
      * @param squareSize size of the squares

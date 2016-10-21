@@ -6,7 +6,8 @@ import java.awt.Graphics;
 import tetris.tetris.Game;
 
 /**
- * Draws the current situation of the game.
+ * Draws the current situation of the game. Draws background, board and falling
+ * tetrimino and also possible game over or paused texts.
  *
  * @author inka
  */

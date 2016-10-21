@@ -65,7 +65,7 @@ public class Board {
     }
 
     /**
-     * Tells if a point in given coordinates is empty (=point is zero).
+     * Tells if a point in given coordinates is empty (= point is zero).
      *
      * @param x x coordinate
      * @param y y coordinate
@@ -126,12 +126,12 @@ public class Board {
         if (y < 0 || y >= HEIGHT) {
             return;
         }
-        for (int z = y; z > 0; z--) {       //ylemmät rivit yksi alemmas
+        for (int z = y; z > 0; z--) {
             for (int x = 0; x < WIDTH; x++) {
                 this.board[z][x] = this.board[z - 1][x];
             }
         }
-        for (int x = 0; x < WIDTH; x++) {     //uusi rivi ylös
+        for (int x = 0; x < WIDTH; x++) {
             this.board[0][x] = 0;
         }
     }
